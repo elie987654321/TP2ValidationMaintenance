@@ -10,6 +10,39 @@ public class GameGraphicalController{
 
     private Partie partie = new Partie();
 
+    // Joueur 1
+    @FXML
+    private Text joueur1;
+    @FXML
+    private Text pointJoueur1;
+    @FXML
+    private Text carteJoueur1;
+
+    // Joueur 2
+    @FXML
+    private Text joueur2;
+    @FXML
+    private Text pointJoueur2;
+    @FXML
+    private Text carteJoueur2;
+
+    // Joueur 3
+    @FXML
+    private Text joueur3;
+    @FXML
+    private Text pointJoueur3;
+    @FXML
+    private Text carteJoueur3;
+
+    // Joueur 4
+    @FXML
+    private Text joueur4;
+    @FXML
+    private Text pointJoueur4;
+    @FXML
+    private Text carteJoueur4;
+
+
     @FXML
     private Button conserverLeJeu;
 
@@ -17,7 +50,7 @@ public class GameGraphicalController{
     private Button demanderUneCarte;
 
     @FXML
-    private Text carteBanquier;
+    private Text tourAuJoueur;
 
     @FXML
     private void handleButtonClickConserver(ActionEvent event) {
@@ -33,22 +66,13 @@ public class GameGraphicalController{
         carteJoueur1.setText(partie.getJoueur1().getMainDu21Bien());
     }
 
-    @FXML
-    private Text pointJoueur1;
 
-    @FXML
-    private Text pointBanquier;
-
-    @FXML
-    private Text carteJoueur1;
 
     @FXML
     private void initialize() {
         partie.DistribuerCartesInitials();
         pointJoueur1.setText(String.valueOf(partie.getJoueur1().getPoints()));
-        pointBanquier.setText(String.valueOf(partie.getBanquier().getPoints()));
         carteJoueur1.setText(partie.getJoueur1().getMainDu21Bien());
-        carteBanquier.setText(partie.getBanquier().getMainDu21Bien());
         conserverLeJeu.setOnAction(this::handleButtonClickConserver);
         demanderUneCarte.setOnAction(this::handleButtonClickCDemander);
     }
