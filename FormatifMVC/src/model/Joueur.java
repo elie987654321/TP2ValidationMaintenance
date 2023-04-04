@@ -1,6 +1,4 @@
-package Model;
-
-import Model.Carte;
+package model;
 
 import java.util.ArrayList;
 
@@ -27,6 +25,15 @@ public class Joueur {
         return mainDu21;
     }
 
+    public String getMainDu21Bien() {
+        String test = "";
+        for (Carte carte:
+             this.mainDu21) {
+            test += "\n"+carte;
+        }
+        return test;
+    }
+
     public void setMainDu21(ArrayList<Carte> mainDu21) {
         this.mainDu21 = mainDu21;
     }
@@ -45,7 +52,7 @@ public class Joueur {
     // Tostring
     @Override
     public String toString() {
-        return "App.Model.Joueur{" +
+        return "App.Joueur{" +
                 "mainDu21=" + mainDu21 +
                 ", points=" + points +
                 '}';

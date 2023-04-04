@@ -1,10 +1,41 @@
-import Controlleur.Partie;
+package controller;
 
+import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import javafx.util.Callback;
+import model.Partie;
+
+import java.security.PrivateKey;
 import java.util.Scanner;
 
-public class main {
+public class GameController extends Application{
 
-    public static void main(String args[]) {
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        primaryStage.setTitle("Jeu du 21");
+
+        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("../view/Game.fxml"));
+
+        Scene scene = new Scene(fxmlLoader1.load(), 625, 450);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+
+
+
+    /*public static void main(String args[]) {
 
         Scanner scanner = new Scanner(System.in);
         String rejouer = "";
@@ -21,13 +52,10 @@ public class main {
             for (int i = 0; i < partie.getBanquier().getMainDu21().size(); i++) {
                 System.out.println(i+1+" - "+partie.getBanquier().getMainDu21().get(i));
             }
-            if (partie.getBanquier().getPoints() > 21)
-            {
-                System.out.println("valeur du jeu 21: "+ partie.getBanquier().getPoints() + " -> "+ "21 est depassé.\n");
-            }
-            else
-            {
-                System.out.println("valeur du jeu 21: "+ partie.getBanquier().getPoints() + " -> "+ (21 - partie.getBanquier().getPoints())+ " pour depasser.\n");
+            if (partie.getBanquier().getPoints() > 21){
+                System.out.println("valeur du jeu 21: "+ partie.getBanquier().getPoints()+ " -> "+ "21 est depassé.\n");
+            }else {
+                System.out.println("valeur du jeu 21: "+ partie.getBanquier().getPoints()+ " -> "+ (21 - partie.getBanquier().getPoints())+ " pour depasser.\n");
             }
 
             // Premieres cartes du joueur
@@ -113,5 +141,5 @@ public class main {
         }
         while (rejouer.equals("o"));
 
-    }
+    }*/
 }
