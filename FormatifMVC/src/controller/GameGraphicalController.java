@@ -1,5 +1,6 @@
 package controller;
 
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -9,7 +10,7 @@ import javafx.scene.text.Text;
 import model.Joueurs.Joueur1;
 import model.Joueurs.JoueurCreateur;
 import model.Joueurs.JoueurProduit;
-import model.Partie;
+import model.*;
 
 public class GameGraphicalController{
 
@@ -74,20 +75,66 @@ public class GameGraphicalController{
     private ImageView paquetDeCartes;
 
     @FXML
+    private void handleButtonClickCDemander(ActionEvent event) {
+        System.out.println("demander");
+    }
+
+    @FXML
     private void handleButtonClickConserver(ActionEvent event) {
         System.out.println("conserver");
 
     }
 
     @FXML
-    private void handleButtonClickCDemander(ActionEvent event) {
+    private void handleButtonClickCDemanderJoueur2(ActionEvent event) {
         System.out.println("demander");
-        partie.PigerCarteJoueur();
-        pointJoueur1.setText(String.valueOf(partie.getJoueur1().getPoints()));
-        carteJoueur1.setText(partie.getJoueur1().getMainDu21Bien());
+    }    @FXML
+    private void handleButtonClickConserverJoueur2(ActionEvent event) {
+        System.out.println("conserver");
+
     }
 
 
+    @FXML
+    private void handleButtonClickConserverJOueur3(ActionEvent event) {
+        System.out.println("conserver");
+
+    }
+
+    @FXML
+    private void handleButtonClickDemanderJoueur4(ActionEvent event) {
+        System.out.println("demander");
+    }
+
+    private void InitializerPartie()
+    {
+
+    }
+
+    private void DonnerCarteJoueur1(Carte carte)
+    {
+
+    }
+
+    private void DonnerCarteJoueur2(Carte carte)
+    {
+
+    }
+
+    private void DonnerCarteJoueur3(Carte carte)
+    {
+
+    }
+
+    private void DonnerCarteJoueur4(Carte carte)
+    {
+
+    }
+
+    private void DeclareVainqueur(JoueurProduit vainqueur)
+    {
+
+    }
 
     @FXML
     private void initialize() {
