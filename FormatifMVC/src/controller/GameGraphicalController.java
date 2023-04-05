@@ -14,6 +14,18 @@ import model.*;
 
 public class GameGraphicalController{
 
+    private boolean joueur1EnAttente = true;
+    private boolean joueur2EnAttente = true;
+    private boolean joueur3EnAttente = true;
+    private boolean joueur4EnAttente = true;
+
+    private boolean joueur1Depasser = false;
+    private boolean joueur2Depasser = false;
+    private boolean joueur3Depasser = false;
+    private boolean joueur4Depasser = false;
+
+    private boolean partieTerminer;
+
     private Partie partie = new Partie();
 
     // Joueur 1
@@ -74,37 +86,132 @@ public class GameGraphicalController{
     @FXML
     private ImageView paquetDeCartes;
 
+
     @FXML
-    private void handleButtonClickCDemander(ActionEvent event) {
-        System.out.println("demander");
+    private void handleButtonClickDemanderJoueur1(ActionEvent event) {
+        if(!joueur1EnAttente && !joueur1Depasser && !partieTerminer)
+        {
+            DonnerCarteJoueur1(partie.PigerCarteJoueur1());
+            joueur1EnAttente = true;
+        }
+
+        if(joueur1EnAttente && joueur2EnAttente && joueur3EnAttente && joueur4EnAttente)
+
+        {
+            joueur1EnAttente = false;
+            joueur2EnAttente = false;
+            joueur3EnAttente = false;
+            joueur4EnAttente = false;
+        }
+
+        if(partie.getJoueur1().getPoints() >= 21)
+        {
+            partieTerminer = true;
+            partie.getJoueur1();
+        }
     }
 
-    @FXML
-    private void handleButtonClickConserver(ActionEvent event) {
-        System.out.println("conserver");
 
+
+
+    @FXML
+    private void handleButtonClickConserverJoueur1(ActionEvent event) {
+        joueur1EnAttente = true;
     }
 
+
     @FXML
-    private void handleButtonClickCDemanderJoueur2(ActionEvent event) {
-        System.out.println("demander");
+    private void handleButtonClickDemanderJoueur2(ActionEvent event) {
+        if(!joueur2EnAttente && !joueur2Depasser && !partieTerminer)
+        {
+            DonnerCarteJoueur2(partie.PigerCarteJoueur2());
+            joueur2EnAttente = true;
+        }
+
+        if(joueur1EnAttente && joueur2EnAttente && joueur3EnAttente && joueur4EnAttente)
+
+        {
+            joueur1EnAttente = false;
+            joueur2EnAttente = false;
+            joueur3EnAttente = false;
+            joueur4EnAttente = false;
+        }
+
+        if(partie.getJoueur2().getPoints() >= 21)
+        {
+            partieTerminer = true;
+            partie.getJoueur2();
+
+        }
     }
     @FXML
     private void handleButtonClickConserverJoueur2(ActionEvent event) {
-        System.out.println("conserver");
+        joueur2EnAttente = true;
+    }
+
+
+    @FXML
+    private void handleButtonClickDemanderJoueur3(ActionEvent event) {
+        if(!joueur3EnAttente && !joueur3Depasser && !partieTerminer)
+        {
+            DonnerCarteJoueur3(partie.PigerCarteJoueur3());
+            joueur3EnAttente = true;
+        }
+
+        if(joueur1EnAttente && joueur2EnAttente && joueur3EnAttente && joueur4EnAttente)
+
+        {
+            joueur1EnAttente = false;
+            joueur2EnAttente = false;
+            joueur3EnAttente = false;
+            joueur4EnAttente = false;
+        }
+
+        if(partie.getJoueur3().getPoints() >= 21)
+        {
+            partieTerminer = true;
+
+            DeclareVainqueur(partie.getJoueur3());
+        }
 
     }
 
     @FXML
-    private void handleButtonClickConserverJOueur3(ActionEvent event) {
-        System.out.println("conserver");
-
+    private void handleButtonClickConserverJoueur3(ActionEvent event) {
+        this.joueur3EnAttente = true;
     }
 
     @FXML
     private void handleButtonClickDemanderJoueur4(ActionEvent event) {
-        System.out.println("demander");
+        if(!joueur4EnAttente && !joueur4Depasser && !partieTerminer)
+        {
+            DonnerCarteJoueur4(partie.PigerCarteJoueur4());
+            joueur3EnAttente = true;
+        }
+
+        if(joueur1EnAttente && joueur2EnAttente && joueur3EnAttente && joueur4EnAttente)
+
+        {
+            joueur1EnAttente = false;
+            joueur2EnAttente = false;
+            joueur3EnAttente = false;
+            joueur4EnAttente = false;
+        }
+
+        if(partie.getJoueur4().getPoints() >= 21)
+        {
+            partieTerminer = true;
+            DeclareVainqueur(partie.getJoueur4());
+        }
+
     }
+
+    @FXML
+    private void handleButtonClickConserverJoueur4(ActionEvent event) {
+        this.joueur3EnAttente = true;
+    }
+
+
 
     private void InitializerPartie()
     {
@@ -117,8 +224,7 @@ public class GameGraphicalController{
         DonnerCarteJoueur2(partie.PigerCarteJoueur2());
         DonnerCarteJoueur3(partie.PigerCarteJoueur3());
         DonnerCarteJoueur4(partie.PigerCarteJoueur4());
-
-    }
+   }
 
     private void DonnerCarteJoueur1(Carte carte)
     {
@@ -152,8 +258,14 @@ public class GameGraphicalController{
         partie.DistribuerCartesInitials();
         pointJoueur1.setText(String.valueOf(partie.getJoueur1().getPoints()));
         carteJoueur1.setText(partie.getJoueur1().getMainDu21Bien());
-        conserverJoueur1.setOnAction(this::handleButtonClickConserver);
-        demanderJoueur1.setOnAction(this::handleButtonClickCDemander);
+        conserverJoueur1.setOnAction(this::handleButtonClickConserverJoueur1);
+        demanderJoueur1.setOnAction(this::handleButtonClickDemanderJoueur1);
+        conserverJoueur2.setOnAction(this::handleButtonClickConserverJoueur2);
+        demanderJoueur2.setOnAction(this::handleButtonClickDemanderJoueur2);
+        conserverJoueur3.setOnAction(this::handleButtonClickConserverJoueur3);
+        demanderJoueur3.setOnAction(this::handleButtonClickDemanderJoueur3);
+        conserverJoueur4.setOnAction(this::handleButtonClickConserverJoueur4);
+        demanderJoueur4.setOnAction(this::handleButtonClickDemanderJoueur4);
         JoueurCreateur factory = new JoueurCreateur();
         JoueurProduit joueur = factory.CreerJoueur(4);
 
