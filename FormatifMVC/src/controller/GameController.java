@@ -27,7 +27,7 @@ public class GameController extends Application{
 
         FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("../view/Game.fxml"));
 
-        Scene scene = new Scene(fxmlLoader1.load(), 1038, 727);
+        Scene scene = new Scene(fxmlLoader1.load(), 1320, 919);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
