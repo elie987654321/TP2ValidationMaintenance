@@ -46,9 +46,10 @@ public class Joueur3 implements JoueurProduit {
 
 
     // Methodes
-    public void piger(Carte carte){
+    public Carte piger(Carte carte){
         this.mainDu21.add(carte);
         this.points += carte.getValeur();
+        return carte;
     }
 
     // Tostring

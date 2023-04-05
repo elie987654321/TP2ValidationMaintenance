@@ -98,6 +98,15 @@ public class GameGraphicalController{
 
     private void InitializerPartie()
     {
+        //Distribution des cartes
+        DonnerCarteJoueur1(partie.PigerCarteJoueur1());
+        DonnerCarteJoueur2(partie.PigerCarteJoueur2());
+        DonnerCarteJoueur3(partie.PigerCarteJoueur3());
+        DonnerCarteJoueur4(partie.PigerCarteJoueur4());
+        DonnerCarteJoueur1(partie.PigerCarteJoueur1());
+        DonnerCarteJoueur2(partie.PigerCarteJoueur2());
+        DonnerCarteJoueur3(partie.PigerCarteJoueur3());
+        DonnerCarteJoueur4(partie.PigerCarteJoueur4());
 
     }
 

@@ -19,7 +19,7 @@ public interface JoueurProduit {
 
 
 
-    public void piger(Carte carte);
+    public Carte piger(Carte carte);
 
 
     @Override

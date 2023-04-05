@@ -93,20 +93,20 @@ public class Partie {
     }
 
 
-    public void PigerCarteJoueur1() {
-        this.joueur1.piger(paquet.piger());
+    public Carte PigerCarteJoueur1() {
+       return this.joueur1.piger(paquet.piger());
     }
 
 
-    public void PigerCarteJoueur2() {
-        this.joueur1.piger(paquet.piger());
+    public Carte PigerCarteJoueur2() {
+        return this.joueur1.piger(paquet.piger());
     }
 
-    public void PigerCarteJoueur3() {
-        this.joueur1.piger(paquet.piger());
+    public Carte PigerCarteJoueur3() {
+        return this.joueur1.piger(paquet.piger());
     }
 
-    public void PigerCarteJoueur4() {
-        this.joueur1.piger(paquet.piger());
+    public Carte PigerCarteJoueur4() {
+        return this.joueur1.piger(paquet.piger());
     }
 }
