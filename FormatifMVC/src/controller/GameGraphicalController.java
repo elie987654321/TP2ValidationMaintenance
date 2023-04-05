@@ -1,5 +1,6 @@
 package controller;
 
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -7,7 +8,7 @@ import javafx.scene.text.Text;
 import model.Joueurs.Joueur1;
 import model.Joueurs.JoueurCreateur;
 import model.Joueurs.JoueurProduit;
-import model.Partie;
+import model.*;
 
 public class GameGraphicalController{
 
@@ -97,27 +98,31 @@ public class GameGraphicalController{
 
     private void InitializerPartie()
     {
-        
 
-        pointJoueur1.setText(String.valueOf(partie.getJoueur1().getPoints()));
-        carteJoueur1.setText(partie.getJoueur1().getMainDu21Bien());
-        conserverJoueur1.setOnAction(this::handleButtonClickConserver);
-        demanderJoueur1.setOnAction(this::handleButtonClickCDemander);
-        pointJoueur2.setText(String.valueOf(partie.getJoueur1().getPoints()));
-        carteJoueur2.setText(partie.getJoueur1().getMainDu21Bien());
-        conserverJoueur2.setOnAction(this::handleButtonClickConserver);
-        demanderJoueur2.setOnAction(this::handleButtonClickCDemander);
-        pointJoueur3.setText(String.valueOf(partie.getJoueur1().getPoints()));
-        carteJoueur3.setText(partie.getJoueur1().getMainDu21Bien());
-        conserverJoueur3.setOnAction(this::handleButtonClickConserver);
-        demanderJoueur3.setOnAction(this::handleButtonClickCDemander);
-        pointJoueur4.setText(String.valueOf(partie.getJoueur1().getPoints()));
-        carteJoueur4.setText(partie.getJoueur1().getMainDu21Bien());
-        conserverJoueur4.setOnAction(this::handleButtonClickConserver);
-        demanderJoueur4.setOnAction(this::handleButtonClickCDemander);
+    }
 
-        JoueurCreateur factory = new JoueurCreateur();
-        JoueurProduit joueur = factory.CreerJoueur(4);
+    private void DonnerCarteJoueur1(Carte carte)
+    {
+
+    }
+
+    private void DonnerCarteJoueur2(Carte carte)
+    {
+
+    }
+
+    private void DonnerCarteJoueur3(Carte carte)
+    {
+
+    }
+
+    private void DonnerCarteJoueur4(Carte carte)
+    {
+
+    }
+
+    private void DeclareVainqueur(JoueurProduit vainqueur)
+    {
 
     }
 
