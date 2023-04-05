@@ -1,21 +1,23 @@
-package model;
+package model.Joueurs;
+
+import model.Carte;
 
 import java.util.ArrayList;
 
-public class Joueur {
+public class Joueur4 implements JoueurProduit{
 
     // Attributs
     private ArrayList<Carte> mainDu21;
     private int points;
 
     // Constructeur par défaut
-    public Joueur() {
+    public Joueur4() {
         this.mainDu21 = new ArrayList<Carte>();
         this.points = 0;
     }
 
     // Constructeur complet
-    public Joueur(ArrayList<Carte> mainDu21, int points) {
+    public Joueur4(ArrayList<Carte> mainDu21, int points) {
         this.mainDu21 = mainDu21;
         this.points = points;
     }
@@ -28,7 +30,7 @@ public class Joueur {
     public String getMainDu21Bien() {
         String test = "";
         for (Carte carte:
-             this.mainDu21) {
+                this.mainDu21) {
             test += "\n"+carte;
         }
         return test;

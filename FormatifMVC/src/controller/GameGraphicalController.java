@@ -4,6 +4,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
+import model.Joueurs.Joueur1;
+import model.Joueurs.JoueurCreateur;
+import model.Joueurs.JoueurProduit;
 import model.Partie;
 
 public class GameGraphicalController{
@@ -75,6 +78,10 @@ public class GameGraphicalController{
         carteJoueur1.setText(partie.getJoueur1().getMainDu21Bien());
         conserverLeJeu.setOnAction(this::handleButtonClickConserver);
         demanderUneCarte.setOnAction(this::handleButtonClickCDemander);
+        JoueurCreateur factory = new JoueurCreateur();
+        JoueurProduit joueur = factory.CreerJoueur(4);
+
+        int i = 0;
     }
 
 }
