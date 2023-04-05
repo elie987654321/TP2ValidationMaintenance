@@ -64,9 +64,6 @@ public class GameGraphicalController{
     @FXML
     private void handleButtonClickCDemander(ActionEvent event) {
         System.out.println("demander");
-        partie.PigerCarteJoueur();
-        pointJoueur1.setText(String.valueOf(partie.getJoueur1().getPoints()));
-        carteJoueur1.setText(partie.getJoueur1().getMainDu21Bien());
     }
 
 

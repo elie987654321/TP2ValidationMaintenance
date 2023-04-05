@@ -88,19 +88,49 @@
             </Text>
          </children>
       </Pane>
-      <Button fx:id="conserverLeJeu" layoutX="320.0" layoutY="631.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="184.0" text="Conserver son jeu">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <Button fx:id="demanderUneCarte" layoutX="553.0" layoutY="631.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="191.0" text="Demander une carte">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-      <Text fx:id="tourAuJoueur" layoutX="458.0" layoutY="611.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tour à Joueur 1" wrappingWidth="147.751953125">
+      <Text fx:id="tour" layoutX="489.0" layoutY="646.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tour 0" wrappingWidth="147.751953125">
          <font>
             <Font size="20.0" />
          </font></Text>
+      <Button fx:id="conserverJoueur1" layoutX="40.0" layoutY="569.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" text="Conserver">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="demanderJoueur1" layoutX="145.0" layoutY="569.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" text="Demander">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="conserverJoueur2" layoutX="301.0" layoutY="569.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" text="Conserver">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="demanderJoueur2" layoutX="406.0" layoutY="569.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" text="Demander">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="conserverJoueur3" layoutX="551.0" layoutY="569.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" text="Conserver">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="demanderJoueur3" layoutX="655.0" layoutY="569.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" text="Demander">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="conserverJoueur4" layoutX="798.0" layoutY="569.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" text="Conserver">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="demanderJoueur4" layoutX="903.0" layoutY="569.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" text="Demander">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
