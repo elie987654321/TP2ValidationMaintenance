@@ -88,12 +88,12 @@ public class GameGraphicalController{
     @FXML
     private void handleButtonClickCDemanderJoueur2(ActionEvent event) {
         System.out.println("demander");
-    }    @FXML
+    }
+    @FXML
     private void handleButtonClickConserverJoueur2(ActionEvent event) {
         System.out.println("conserver");
 
     }
-
 
     @FXML
     private void handleButtonClickConserverJOueur3(ActionEvent event) {
