@@ -27,6 +27,16 @@ public class GameGraphicalController{
     private Button conserverJoueur1;
     @FXML
     private Button demanderJoueur1;
+    @FXML
+    private ImageView carte1Joueur1;
+    @FXML
+    private ImageView carte2Joueur1;
+    @FXML
+    private ImageView carte3Joueur1;
+    @FXML
+    private ImageView carte4Joueur1;
+    @FXML
+    private ImageView carte5Joueur1;
 
     // Joueur 2
     @FXML
@@ -75,35 +85,43 @@ public class GameGraphicalController{
     private ImageView paquetDeCartes;
 
     @FXML
-    private void handleButtonClickCDemander(ActionEvent event) {
-        System.out.println("demander");
+    private void handleButtonClickDemanderJoueur1(ActionEvent event) {
+        System.out.println("demander joueur 1");
+    }
+    @FXML
+    private void handleButtonClickConserverJoueur1(ActionEvent event) {
+        System.out.println("conserver joueur 1");
+
     }
 
     @FXML
-    private void handleButtonClickConserver(ActionEvent event) {
-        System.out.println("conserver");
-
-    }
-
-    @FXML
-    private void handleButtonClickCDemanderJoueur2(ActionEvent event) {
-        System.out.println("demander");
+    private void handleButtonClickDemanderJoueur2(ActionEvent event) {
+        System.out.println("demander joueur 2");
     }
     @FXML
     private void handleButtonClickConserverJoueur2(ActionEvent event) {
-        System.out.println("conserver");
+        System.out.println("conserver  joueur 2");
 
     }
 
     @FXML
-    private void handleButtonClickConserverJOueur3(ActionEvent event) {
-        System.out.println("conserver");
+    private void handleButtonClickDemanderJoueur3(ActionEvent event) {
+        System.out.println("demander joueur 3");
+    }
+    @FXML
+    private void handleButtonClickConserverJoueur3(ActionEvent event) {
+        System.out.println("conserver joueur 3");
 
     }
 
     @FXML
     private void handleButtonClickDemanderJoueur4(ActionEvent event) {
-        System.out.println("demander");
+        System.out.println("demander joueur 4");
+    }
+    @FXML
+    private void handleButtonClickConserverJoueur4(ActionEvent event) {
+        System.out.println("conserver joueur 4");
+
     }
 
     private void InitializerPartie()
@@ -147,17 +165,28 @@ public class GameGraphicalController{
 
     @FXML
     private void initialize() {
-        croupier.setImage(new Image("images/croupier.png"));
-        paquetDeCartes.setImage(new Image("images/paquetdecartes.png"));
-        partie.DistribuerCartesInitials();
-        pointJoueur1.setText(String.valueOf(partie.getJoueur1().getPoints()));
-        carteJoueur1.setText(partie.getJoueur1().getMainDu21Bien());
-        conserverJoueur1.setOnAction(this::handleButtonClickConserver);
-        demanderJoueur1.setOnAction(this::handleButtonClickCDemander);
         JoueurCreateur factory = new JoueurCreateur();
         JoueurProduit joueur = factory.CreerJoueur(4);
 
-        int i = 0;
-    }
+        carte1Joueur1.setImage(new Image("images/paquetDeCartes/3_of_hearts.png"));
+        carte2Joueur1.setImage(new Image("images/paquetDeCartes/3_of_hearts.png"));
+        carte3Joueur1.setImage(new Image("images/paquetDeCartes/3_of_hearts.png"));
+        carte4Joueur1.setImage(new Image("images/paquetDeCartes/3_of_hearts.png"));
 
+        croupier.setImage(new Image("images/croupier.png"));
+        paquetDeCartes.setImage(new Image("images/paquetdecartes.png"));
+
+        conserverJoueur1.setOnAction(this::handleButtonClickConserverJoueur1);
+        demanderJoueur1.setOnAction(this::handleButtonClickDemanderJoueur1);
+
+        conserverJoueur2.setOnAction(this::handleButtonClickConserverJoueur2);
+        demanderJoueur2.setOnAction(this::handleButtonClickDemanderJoueur2);
+
+        conserverJoueur3.setOnAction(this::handleButtonClickConserverJoueur3);
+        demanderJoueur3.setOnAction(this::handleButtonClickDemanderJoueur3);
+
+        conserverJoueur4.setOnAction(this::handleButtonClickConserverJoueur4);
+        demanderJoueur4.setOnAction(this::handleButtonClickDemanderJoueur4);
+
+    }
 }

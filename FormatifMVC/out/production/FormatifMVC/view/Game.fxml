@@ -4,137 +4,105 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="727.0" prefWidth="1038.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GameGraphicalController">
+<AnchorPane prefHeight="919.0" prefWidth="1320.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GameGraphicalController">
     <stylesheets>
         <URL value="@Game.css" />
     </stylesheets>
    <children>
-      <Pane layoutX="787.0" layoutY="373.0" prefHeight="245.0" prefWidth="203.0">
-         <children>
-            <Text fx:id="joueur1" layoutX="64.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Joueur 1">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
-            <Text fx:id="pointJoueur1" layoutX="94.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Points">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Text>
-            <Text fx:id="carteJoueur1" layoutX="14.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartes">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Text>
-         </children>
-      </Pane>
-      <Pane layoutX="542.0" layoutY="373.0" prefHeight="245.0" prefWidth="203.0">
-         <children>
-            <Text fx:id="joueur2" layoutX="64.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Joueur 2">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
-            <Text fx:id="pointJoueur2" layoutX="94.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Points">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Text>
-            <Text fx:id="carteJoueur2" layoutX="14.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartes">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Text>
-         </children>
-      </Pane>
-      <Pane layoutX="295.0" layoutY="373.0" prefHeight="245.0" prefWidth="203.0">
-         <children>
-            <Text fx:id="joueur3" layoutX="64.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Joueur 3">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
-            <Text fx:id="pointJoueur3" layoutX="94.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Points">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Text>
-            <Text fx:id="carteJoueur3" layoutX="14.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartes">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Text>
-         </children>
-      </Pane>
-      <Button fx:id="conserverJoueur3" layoutX="295.0" layoutY="636.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" text="Conserver">
+      <Button fx:id="conserverJoueur3" layoutX="928.0" layoutY="353.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" text="Conserver">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="demanderJoueur3" layoutX="400.0" layoutY="636.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" text="Demander">
+      <Button fx:id="demanderJoueur3" layoutX="1105.0" layoutY="369.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" text="Demander">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Pane layoutX="44.0" layoutY="373.0" prefHeight="245.0" prefWidth="203.0">
-         <children>
-            <Text fx:id="joueur4" layoutX="64.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Joueur 4">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
-            <Text fx:id="pointJoueur4" layoutX="94.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Points">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Text>
-            <Text fx:id="carteJoueur4" layoutX="14.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartes">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Text>
-         </children>
-      </Pane>
-      <Text fx:id="tour" layoutX="486.0" layoutY="707.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tour 0" wrappingWidth="147.751953125">
+      <Text fx:id="tour" layoutX="586.0" layoutY="641.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tour 0" wrappingWidth="147.751953125">
          <font>
-            <Font size="22.0" />
+            <Font size="38.0" />
          </font></Text>
-      <Button fx:id="conserverJoueur4" layoutX="44.0" layoutY="636.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" text="Conserver">
+      <Button fx:id="conserverJoueur4" layoutX="1020.0" layoutY="712.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" text="Conserver">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="demanderJoueur4" layoutX="149.0" layoutY="636.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" text="Demander">
+      <Button fx:id="demanderJoueur4" layoutX="1158.0" layoutY="752.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" text="Demander">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
 
-      <Button fx:id="conserverJoueur2" layoutX="542.0" layoutY="636.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" text="Conserver">
+      <Button fx:id="conserverJoueur2" layoutX="69.0" layoutY="721.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" text="Conserver">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="demanderJoueur2" layoutX="647.0" layoutY="636.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" text="Demander">
+      <Button fx:id="demanderJoueur2" layoutX="256.0" layoutY="728.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" text="Demander">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="conserverJoueur1" layoutX="787.0" layoutY="636.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" text="Conserver">
+      <Button fx:id="conserverJoueur1" layoutX="57.0" layoutY="357.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" text="Conserver">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="demanderJoueur1" layoutX="892.0" layoutY="636.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" text="Demander">
+      <Button fx:id="demanderJoueur1" layoutX="196.0" layoutY="357.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" text="Demander">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <ImageView fx:id="croupier" fitHeight="163.0" fitWidth="203.0" layoutX="418.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="paquetDeCartes" fitHeight="116.0" fitWidth="157.0" layoutX="429.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="croupier" fitHeight="234.0" fitWidth="274.0" layoutX="510.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="paquetDeCartes" fitHeight="157.0" fitWidth="231.0" layoutX="532.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true" />
+      <Text fx:id="joueur4" layoutX="1004.0" layoutY="555.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Joueur 4">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="pointJoueur4" layoutX="1118.0" layoutY="552.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Points">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fx:id="joueur3" layoutX="1042.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Joueur 3">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="pointJoueur3" layoutX="1132.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Points">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fx:id="joueur2" layoutX="80.0" layoutY="681.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Joueur 2">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="pointJoueur2" layoutX="228.0" layoutY="692.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Points">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fx:id="joueur1" layoutX="57.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Joueur 1">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="pointJoueur1" layoutX="206.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Points">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="carte1Joueur1" fitHeight="245.0" fitWidth="157.0" layoutX="33.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="carte2Joueur1" fitHeight="245.0" fitWidth="157.0" layoutX="69.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="carte3Joueur1" fitHeight="245.0" fitWidth="157.0" layoutX="107.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="carte4Joueur1" fitHeight="245.0" fitWidth="157.0" layoutX="137.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="carte5Joueur1" fitHeight="245.0" fitWidth="157.0" layoutX="186.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

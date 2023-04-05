@@ -99,14 +99,14 @@ public class Partie {
 
 
     public Carte PigerCarteJoueur2() {
-        return this.joueur1.piger(paquet.piger());
+        return this.joueur2.piger(paquet.piger());
     }
 
     public Carte PigerCarteJoueur3() {
-        return this.joueur1.piger(paquet.piger());
+        return this.joueur3.piger(paquet.piger());
     }
 
     public Carte PigerCarteJoueur4() {
-        return this.joueur1.piger(paquet.piger());
+        return this.joueur4.piger(paquet.piger());
     }
 }

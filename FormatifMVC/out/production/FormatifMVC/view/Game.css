@@ -6,10 +6,6 @@ AnchorPane{
     -fx-background-color: #52cc3f;
 }
 
-#croupier {
-    -fx-background-image:url('../images/croupier.png');
-}
-
-#paquetDeCartes{
-    -fx-background-image:url('../images/paquetdecartes.png');
+.image-view{
+    -fx-background-color: red;
 }
