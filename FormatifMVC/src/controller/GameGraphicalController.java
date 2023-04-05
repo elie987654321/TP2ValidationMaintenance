@@ -3,6 +3,8 @@ package controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import model.Joueurs.Joueur1;
 import model.Joueurs.JoueurCreateur;
@@ -66,6 +68,12 @@ public class GameGraphicalController{
     private Text tour;
 
     @FXML
+    private ImageView croupier;
+
+    @FXML
+    private ImageView paquetDeCartes;
+
+    @FXML
     private void handleButtonClickConserver(ActionEvent event) {
         System.out.println("conserver");
 
@@ -83,11 +91,13 @@ public class GameGraphicalController{
 
     @FXML
     private void initialize() {
+        croupier.setImage(new Image("images/croupier.png"));
+        paquetDeCartes.setImage(new Image("images/paquetdecartes.png"));
         partie.DistribuerCartesInitials();
         pointJoueur1.setText(String.valueOf(partie.getJoueur1().getPoints()));
         carteJoueur1.setText(partie.getJoueur1().getMainDu21Bien());
-        conserverLeJeu.setOnAction(this::handleButtonClickConserver);
-        demanderUneCarte.setOnAction(this::handleButtonClickCDemander);
+        conserverJoueur1.setOnAction(this::handleButtonClickConserver);
+        demanderJoueur1.setOnAction(this::handleButtonClickCDemander);
         JoueurCreateur factory = new JoueurCreateur();
         JoueurProduit joueur = factory.CreerJoueur(4);
 
