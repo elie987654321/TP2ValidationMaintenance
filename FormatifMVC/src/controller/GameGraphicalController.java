@@ -20,6 +20,10 @@ public class GameGraphicalController{
     private Text pointJoueur1;
     @FXML
     private Text carteJoueur1;
+    @FXML
+    private Button conserverJoueur1;
+    @FXML
+    private Button demanderJoueur1;
 
     // Joueur 2
     @FXML
@@ -28,6 +32,10 @@ public class GameGraphicalController{
     private Text pointJoueur2;
     @FXML
     private Text carteJoueur2;
+    @FXML
+    private Button conserverJoueur2;
+    @FXML
+    private Button demanderJoueur2;
 
     // Joueur 3
     @FXML
@@ -36,6 +44,10 @@ public class GameGraphicalController{
     private Text pointJoueur3;
     @FXML
     private Text carteJoueur3;
+    @FXML
+    private Button conserverJoueur3;
+    @FXML
+    private Button demanderJoueur3;
 
     // Joueur 4
     @FXML
@@ -44,16 +56,14 @@ public class GameGraphicalController{
     private Text pointJoueur4;
     @FXML
     private Text carteJoueur4;
-
-
     @FXML
-    private Button conserverLeJeu;
-
+    private Button conserverJoueur4;
     @FXML
-    private Button demanderUneCarte;
+    private Button demanderJoueur4;
 
+    // Tour
     @FXML
-    private Text tourAuJoueur;
+    private Text tour;
 
     @FXML
     private void handleButtonClickConserver(ActionEvent event) {
