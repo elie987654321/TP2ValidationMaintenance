@@ -35,6 +35,18 @@ public class GameGraphicalController{
     private Button conserverJoueur1;
     @FXML
     private Button demanderJoueur1;
+    @FXML
+    private ImageView carte1Joueur1;
+    @FXML
+    private ImageView carte2Joueur1;
+    @FXML
+    private ImageView carte3Joueur1;
+    @FXML
+    private ImageView carte4Joueur1;
+    @FXML
+    private ImageView carte5Joueur1;
+    @FXML
+    private ImageView carte6Joueur1;
 
     // Joueur 2
     @FXML
@@ -45,6 +57,18 @@ public class GameGraphicalController{
     private Button conserverJoueur2;
     @FXML
     private Button demanderJoueur2;
+    @FXML
+    private ImageView carte1Joueur2;
+    @FXML
+    private ImageView carte2Joueur2;
+    @FXML
+    private ImageView carte3Joueur2;
+    @FXML
+    private ImageView carte4Joueur2;
+    @FXML
+    private ImageView carte5Joueur2;
+    @FXML
+    private ImageView carte6Joueur2;
 
     // Joueur 3
     @FXML
@@ -55,6 +79,18 @@ public class GameGraphicalController{
     private Button conserverJoueur3;
     @FXML
     private Button demanderJoueur3;
+    @FXML
+    private ImageView carte1Joueur3;
+    @FXML
+    private ImageView carte2Joueur3;
+    @FXML
+    private ImageView carte3Joueur3;
+    @FXML
+    private ImageView carte4Joueur3;
+    @FXML
+    private ImageView carte5Joueur3;
+    @FXML
+    private ImageView carte6Joueur3;
 
     // Joueur 4
     @FXML
@@ -65,17 +101,28 @@ public class GameGraphicalController{
     private Button conserverJoueur4;
     @FXML
     private Button demanderJoueur4;
+    @FXML
+    private ImageView carte1Joueur4;
+    @FXML
+    private ImageView carte2Joueur4;
+    @FXML
+    private ImageView carte3Joueur4;
+    @FXML
+    private ImageView carte4Joueur4;
+    @FXML
+    private ImageView carte5Joueur4;
+    @FXML
+    private ImageView carte6Joueur4;
 
     // Tour
     @FXML
     private Text tour;
 
+    // Dealer
     @FXML
     private ImageView croupier;
-
     @FXML
     private ImageView paquetDeCartes;
-
 
     @FXML
     private void handleButtonClickDemanderJoueur1(ActionEvent event) {
@@ -248,14 +295,38 @@ public class GameGraphicalController{
         croupier.setImage(new Image("images/croupier.png"));
         paquetDeCartes.setImage(new Image("images/paquetdecartes.png"));
         partie.DistribuerCartesInitials();
-        conserverJoueur1.setOnAction(this::handleButtonClickConserverJoueur1);
-        demanderJoueur1.setOnAction(this::handleButtonClickDemanderJoueur1);
-        conserverJoueur2.setOnAction(this::handleButtonClickConserverJoueur2);
-        demanderJoueur2.setOnAction(this::handleButtonClickDemanderJoueur2);
-        conserverJoueur3.setOnAction(this::handleButtonClickConserverJoueur3);
-        demanderJoueur3.setOnAction(this::handleButtonClickDemanderJoueur3);
-        conserverJoueur4.setOnAction(this::handleButtonClickConserverJoueur4);
-        demanderJoueur4.setOnAction(this::handleButtonClickDemanderJoueur4);
+        carte1Joueur1.setImage(new Image("images/paquet/2_of_clubs.png"));
+        carte2Joueur1.setImage(new Image("images/paquet/2_of_clubs.png"));
+        carte3Joueur1.setImage(new Image("images/paquet/2_of_clubs.png"));
+        carte4Joueur1.setImage(new Image("images/paquet/2_of_clubs.png"));
+        carte5Joueur1.setImage(new Image("images/paquet/2_of_clubs.png"));
+        carte1Joueur1.setImage(new Image("images/paquet/2_of_clubs.png"));
+        carte6Joueur1.setImage(new Image("images/paquet/2_of_clubs.png"));
+
+        carte1Joueur2.setImage(new Image("images/paquet/2_of_clubs.png"));
+        carte2Joueur2.setImage(new Image("images/paquet/2_of_clubs.png"));
+        carte3Joueur2.setImage(new Image("images/paquet/2_of_clubs.png"));
+        carte4Joueur2.setImage(new Image("images/paquet/2_of_clubs.png"));
+        carte5Joueur2.setImage(new Image("images/paquet/2_of_clubs.png"));
+        carte1Joueur2.setImage(new Image("images/paquet/2_of_clubs.png"));
+        carte6Joueur2.setImage(new Image("images/paquet/2_of_clubs.png"));
+
+        carte1Joueur3.setImage(new Image("images/paquet/2_of_clubs.png"));
+        carte2Joueur3.setImage(new Image("images/paquet/2_of_clubs.png"));
+        carte3Joueur3.setImage(new Image("images/paquet/2_of_clubs.png"));
+        carte4Joueur3.setImage(new Image("images/paquet/2_of_clubs.png"));
+        carte5Joueur3.setImage(new Image("images/paquet/2_of_clubs.png"));
+        carte1Joueur3.setImage(new Image("images/paquet/2_of_clubs.png"));
+        carte6Joueur3.setImage(new Image("images/paquet/2_of_clubs.png"));
+
+        carte1Joueur4.setImage(new Image("images/paquet/2_of_clubs.png"));
+        carte2Joueur4.setImage(new Image("images/paquet/2_of_clubs.png"));
+        carte3Joueur4.setImage(new Image("images/paquet/2_of_clubs.png"));
+        carte4Joueur4.setImage(new Image("images/paquet/2_of_clubs.png"));
+        carte5Joueur4.setImage(new Image("images/paquet/2_of_clubs.png"));
+        carte1Joueur4.setImage(new Image("images/paquet/2_of_clubs.png"));
+        carte6Joueur4.setImage(new Image("images/paquet/2_of_clubs.png"));
+
         JoueurCreateur factory = new JoueurCreateur();
         JoueurProduit joueur = factory.CreerJoueur(4);
 
