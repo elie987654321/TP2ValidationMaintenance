@@ -1,40 +1,20 @@
 package model;
 
+import EnumPerso.EnumCartes;
+
 public class Carte {
 
     // Attributs
-    private String nom;
-
-    public enum TypesCartes
-    {
-        trefle,
-        pique,
-        coeur,
-        carreau
-    }
-
-    public enum Rang
-    {
-        DEUX,
-        TROIS,
-        QUATRE,
-        CINQ,
-        SIX,
-        SEPT,
-        HUIT,
-        NEUF,
-        DIX,
-        VALET,
-        DAME,
-        ROI,
-        AS
-    }
-
     private int valeur;
 
+    private EnumCartes.RangCartes rang;
+    private EnumCartes.TypesCartes type;
+
+
     // Constructeur
-    public Carte(String nom, int valeur) {
-        this.nom = nom;
+    public Carte(EnumCartes.TypesCartes type, EnumCartes.RangCartes rang, int valeur) {
+        this.type = type;
+        this.rang = rang;
         this.valeur = valeur;
     }
 
