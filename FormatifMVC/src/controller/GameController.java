@@ -35,8 +35,9 @@ public class GameController extends Application{
 
 
 
-    /*public static void main(String args[]) {
-
+    public static void main(String args[]) {
+        launch(args);
+/*
         Scanner scanner = new Scanner(System.in);
         String rejouer = "";
 
@@ -140,6 +141,6 @@ public class GameController extends Application{
 
         }
         while (rejouer.equals("o"));
-
-    }*/
+*/
+    }
 }

@@ -4,6 +4,32 @@ public class Carte {
 
     // Attributs
     private String nom;
+
+    public enum TypesCartes
+    {
+        trefle,
+        pique,
+        coeur,
+        carreau
+    }
+
+    public enum Rang
+    {
+        DEUX,
+        TROIS,
+        QUATRE,
+        CINQ,
+        SIX,
+        SEPT,
+        HUIT,
+        NEUF,
+        DIX,
+        VALET,
+        DAME,
+        ROI,
+        AS
+    }
+
     private int valeur;
 
     // Constructeur
