@@ -9,7 +9,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class ChoixDesNomsGraphicalController {
-
     @FXML
     private TextField nomJoueur1;
     @FXML
@@ -54,12 +53,7 @@ public class ChoixDesNomsGraphicalController {
                 gameGraphicalController.joueur4.setText(nomJoueur4.getText());
                 i++;
             }
-            System.out.println(nomJoueur1.getText());
-            System.out.println(nomJoueur2.getText());
-            System.out.println(nomJoueur3.getText());
-            System.out.println(nomJoueur4.getText());
-
-            System.out.println(i);
+            
             if(i==4){
                 primaryStage.setScene(scene);
                 primaryStage.show();
@@ -68,7 +62,5 @@ public class ChoixDesNomsGraphicalController {
         }catch (Exception e){
             e.printStackTrace();
         }
-
-
     }
 }
