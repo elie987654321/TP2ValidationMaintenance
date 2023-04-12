@@ -392,42 +392,11 @@ public class GameGraphicalController{
 
     @FXML
     private void initialize() {
+
         croupier.setImage(new Image("images/croupier.png"));
         paquetDeCartes.setImage(new Image("images/paquetdecartes.png"));
         partie.DistribuerCartesInitials();
         InitializerPartie();
-     /*   carte1Joueur1.setImage(new Image("images/paquet/deux_trefle.png"));
-        carte2Joueur1.setImage(new Image("images/paquet/deux_trefle.png"));
-        carte3Joueur1.setImage(new Image("images/paquet/deux_trefle.png"));
-        carte4Joueur1.setImage(new Image("images/paquet/deux_trefle.png"));
-        carte5Joueur1.setImage(new Image("images/paquet/deux_trefle.png"));
-        carte1Joueur1.setImage(new Image("images/paquet/deux_trefle.png"));
-        carte6Joueur1.setImage(new Image("images/paquet/deux_trefle.png"));
-
-        carte1Joueur2.setImage(new Image("images/paquet/deux_trefle.png"));
-        carte2Joueur2.setImage(new Image("images/paquet/deux_trefle.png"));
-        carte3Joueur2.setImage(new Image("images/paquet/deux_trefle.png"));
-        carte4Joueur2.setImage(new Image("images/paquet/deux_trefle.png"));
-        carte5Joueur2.setImage(new Image("images/paquet/deux_trefle.png"));
-        carte1Joueur2.setImage(new Image("images/paquet/deux_trefle.png"));
-        carte6Joueur2.setImage(new Image("images/paquet/deux_trefle.png"));
-
-        carte1Joueur3.setImage(new Image("images/paquet/deux_trefle.png"));
-        carte2Joueur3.setImage(new Image("images/paquet/deux_trefle.png"));
-        carte3Joueur3.setImage(new Image("images/paquet/deux_trefle.png"));
-        carte4Joueur3.setImage(new Image("images/paquet/deux_trefle.png"));
-        carte5Joueur3.setImage(new Image("images/paquet/deux_trefle.png"));
-        carte1Joueur3.setImage(new Image("images/paquet/deux_trefle.png"));
-        carte6Joueur3.setImage(new Image("images/paquet/deux_trefle.png"));
-
-        carte1Joueur4.setImage(new Image("images/paquet/deux_trefle.png"));
-        carte2Joueur4.setImage(new Image("images/paquet/deux_trefle.png"));
-        carte3Joueur4.setImage(new Image("images/paquet/deux_trefle.png"));
-        carte4Joueur4.setImage(new Image("images/paquet/deux_trefle.png"));
-        carte5Joueur4.setImage(new Image("images/paquet/deux_trefle.png"));
-        carte1Joueur4.setImage(new Image("images/paquet/deux_trefle.png"));
-        carte6Joueur4.setImage(new Image("images/paquet/deux_trefle.png"));
-*/
         JoueurCreateur factory = new JoueurCreateur();
         JoueurProduit joueur = factory.CreerJoueur(4);
 
