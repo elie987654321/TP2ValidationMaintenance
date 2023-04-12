@@ -10,11 +10,14 @@ public class GameController extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        ChoixDesNomsGraphicalController choixDesNomsGraphicalController = new ChoixDesNomsGraphicalController();
+        GameGraphicalController gameGraphicalController = new GameGraphicalController();
+
         primaryStage.setTitle("Choix des noms");
 
         FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("../view/ChoixDesNoms.fxml"));
 
-        Scene scene = new Scene(fxmlLoader1.load(), 674, 443);
+        Scene scene = new Scene(fxmlLoader1.load());
         primaryStage.setScene(scene);
         primaryStage.show();
 /*

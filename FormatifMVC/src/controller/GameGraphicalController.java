@@ -29,7 +29,7 @@ public class GameGraphicalController{
 
     // Joueur 1
     @FXML
-    private Text joueur1;
+    public Text joueur1;
     @FXML
     private Text pointJoueur1;
 
@@ -54,7 +54,7 @@ public class GameGraphicalController{
 
     // Joueur 2
     @FXML
-    private Text joueur2;
+    public Text joueur2;
 
     private int nbCarteJoueur2 = 0;
     @FXML
@@ -78,7 +78,7 @@ public class GameGraphicalController{
 
     // Joueur 3
     @FXML
-    private Text joueur3;
+    public Text joueur3;
 
     private int nbCarteJoueur3 = 0;
     @FXML
@@ -102,7 +102,7 @@ public class GameGraphicalController{
 
     // Joueur 4
     @FXML
-    private Text joueur4;
+    public Text joueur4;
 
     private int nbCarteJoueur4 = 0;
     @FXML
