@@ -1,5 +1,7 @@
 package model;
 
+import EnumPerso.EnumsCartes;
+
 import java.util.ArrayList;
 
 public class Paquet {
@@ -8,22 +10,7 @@ public class Paquet {
     private ArrayList<Carte> paquet;
 
     // Enum
-    public enum Rang
-    {
-        DEUX,
-        TROIS,
-        QUATRE,
-        CINQ,
-        SIX,
-        SEPT,
-        HUIT,
-        NEUF,
-        DIX,
-        VALET,
-        DAME,
-        ROI,
-        AS
-    }
+
 
     // Constructeur
     public Paquet() {
@@ -40,22 +27,22 @@ public class Paquet {
     public void initPaquet(){
         int point = 1;
 
-        for (Paquet.Rang rang : Paquet.Rang.values()) {
+        for (EnumsCartes.RangCartes rang : EnumsCartes.RangCartes.values()) {
 
-            if (rang == rang.AS){
+            if (rang == EnumsCartes.RangCartes.AS){
                 point = 11;
             }
-            else if (rang == rang.VALET || rang == rang.DAME ||rang == rang.ROI){
+            else if (rang == EnumsCartes.RangCartes.VALET || rang == EnumsCartes.RangCartes.REINE ||rang == EnumsCartes.RangCartes.ROI){
                 point = 10;
             }
             else {
                 point++;
             }
 
-            this.paquet.add(new Carte(rang + " DE PIQUE ♠", point));
-            this.paquet.add(new Carte(rang + " DE TREFLE ♣", point));
-            this.paquet.add(new Carte(rang + " DE CARREAU ♦", point));
-            this.paquet.add(new Carte(rang + " DE COEUR ♥", point));
+            this.paquet.add(new Carte(EnumsCartes.TypesCartes.trefle, rang, point));
+            this.paquet.add(new Carte( EnumsCartes.TypesCartes.pique, rang, point));
+            this.paquet.add(new Carte( EnumsCartes.TypesCartes.coeur, rang, point));
+            this.paquet.add(new Carte( EnumsCartes.TypesCartes.carreau, rang, point));
         }
     }
 

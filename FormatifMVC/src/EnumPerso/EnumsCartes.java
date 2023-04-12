@@ -1,6 +1,6 @@
 package EnumPerso;
 
-public class EnumCartes {
+public class EnumsCartes {
     public enum RangCartes {
         DEUX,
         TROIS,

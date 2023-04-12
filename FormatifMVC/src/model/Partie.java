@@ -17,14 +17,12 @@ public class Partie {
 
         JoueurCreateur factory = new JoueurCreateur();
 
-
         this.joueur1 = factory.CreerJoueur(1);
         this.joueur2 = factory.CreerJoueur(2);
         this.joueur3 = factory.CreerJoueur(3);
         this.joueur4 = factory.CreerJoueur(4);
         this.paquet = new Paquet();
         this.paquet.initPaquet();
-
     }
 
 
@@ -74,7 +72,6 @@ public class Partie {
 
         this.PigerCarteJoueur1();
         this.PigerCarteJoueur1();
-
 
         this.PigerCarteJoueur2();
         this.PigerCarteJoueur2();

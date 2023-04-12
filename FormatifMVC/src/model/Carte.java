@@ -1,18 +1,18 @@
 package model;
 
-import EnumPerso.EnumCartes;
+import EnumPerso.EnumsCartes;
 
 public class Carte {
 
     // Attributs
     private int valeur;
 
-    private EnumCartes.RangCartes rang;
-    private EnumCartes.TypesCartes type;
+    private EnumsCartes.RangCartes rang;
+    private EnumsCartes.TypesCartes type;
 
 
     // Constructeur
-    public Carte(EnumCartes.TypesCartes type, EnumCartes.RangCartes rang, int valeur) {
+    public Carte(EnumsCartes.TypesCartes type, EnumsCartes.RangCartes rang, int valeur) {
         this.type = type;
         this.rang = rang;
         this.valeur = valeur;
@@ -23,16 +23,29 @@ public class Carte {
     {
         Carte autreCarte = (Carte) o;
 
-        return (this.nom == autreCarte.getNom()) && (this.valeur == autreCarte.getValeur());
+        return (this.rang == autreCarte.getRang()) && (this.valeur == autreCarte.getValeur());
     }
 
     // Accesseurs et mutateurs
-    public String getNom() {
-        return nom;
+    public EnumsCartes.RangCartes getRang()
+    {
+        return this.rang;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setRang(EnumsCartes.RangCartes rang)
+    {
+        this.rang = rang;
+    }
+
+    public String getNom()
+    {
+        return this.rang + " de " + this.valeur;
+    }
+
+    //Pas sur si ok de mettre ça la car ça depend du nom et de l'emplacement de tout les fichiers d'image
+    public String getPath()
+    {
+        return System.getProperty("../images/paquets/" + this.rang + "_" + this.type + ".png");
     }
 
     public int getValeur() {
@@ -46,6 +59,6 @@ public class Carte {
     // ToString
     @Override
     public String toString() {
-        return nom + " " +valeur;
-}
+        return "Rang:" + this.rang + "Valeur:" + this.type;
+    }
 }
