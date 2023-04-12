@@ -26,6 +26,7 @@ public class GameGraphicalController{
 
     private Partie partie = new Partie();
 
+
     // Joueur 1
     @FXML
     private Text joueur1;
@@ -133,7 +134,6 @@ public class GameGraphicalController{
     @FXML
     private ImageView paquetDeCartes;
 
-
     @FXML
     private void handleButtonClickDemanderJoueur1(ActionEvent event) {
         if(!joueur1EnAttente && !joueur1Depasser && !partieTerminer)
@@ -143,6 +143,7 @@ public class GameGraphicalController{
         }
 
         if(joueur1EnAttente && joueur2EnAttente && joueur3EnAttente && joueur4EnAttente)
+
         {
             joueur1EnAttente = false;
             joueur2EnAttente = false;
@@ -256,13 +257,13 @@ public class GameGraphicalController{
         this.joueur3EnAttente = true;
     }
 
-
     private void GestionnairePartie()
     {
         InitializerPartie();
         JoueurCreateur factory = new JoueurCreateur();
         JoueurProduit joueur = factory.CreerJoueur(4);
     }
+
 
     private void InitializerPartie()
     {
@@ -276,7 +277,6 @@ public class GameGraphicalController{
         DonnerCarteJoueur3(partie.PigerCarteJoueur3());
         DonnerCarteJoueur4(partie.PigerCarteJoueur4());
     }
-
 
     private void DonnerCarteJoueur1(Carte carte)
     {
