@@ -257,11 +257,16 @@ public class GameGraphicalController{
     }
 
 
+    private void GestionnairePartie()
+    {
+        InitializerPartie();
+        JoueurCreateur factory = new JoueurCreateur();
+        JoueurProduit joueur = factory.CreerJoueur(4);
+    }
 
     private void InitializerPartie()
     {
-
-        //Distribution des cartes
+         //Distribution des cartes
         DonnerCarteJoueur1(partie.PigerCarteJoueur1());
         DonnerCarteJoueur2(partie.PigerCarteJoueur2());
         DonnerCarteJoueur3(partie.PigerCarteJoueur3());
@@ -299,6 +304,8 @@ public class GameGraphicalController{
             default:
                 break;
         }
+
+        this.pointJoueur1.setText(Integer.toString(this.partie.getJoueur1().getPoints()));
     }
 
     private void DonnerCarteJoueur2(Carte carte)
@@ -327,6 +334,8 @@ public class GameGraphicalController{
             default:
                 break;
         }
+
+        this.pointJoueur2.setText(Integer.toString(this.partie.getJoueur2().getPoints()));
     }
 
     private void DonnerCarteJoueur3(Carte carte)
@@ -355,6 +364,7 @@ public class GameGraphicalController{
             default:
                 break;
         }
+        this.pointJoueur3.setText(Integer.toString(this.partie.getJoueur3().getPoints()));
     }
 
     private void DonnerCarteJoueur4(Carte carte)
@@ -383,6 +393,8 @@ public class GameGraphicalController{
             default:
                 break;
         }
+
+        this.pointJoueur4.setText(Integer.toString(this.partie.getJoueur4().getPoints()));
     }
 
     private void DeclareVainqueur(JoueurProduit vainqueur)
@@ -395,10 +407,6 @@ public class GameGraphicalController{
 
         croupier.setImage(new Image("images/croupier.png"));
         paquetDeCartes.setImage(new Image("images/paquetdecartes.png"));
-        partie.DistribuerCartesInitials();
-        InitializerPartie();
-        JoueurCreateur factory = new JoueurCreateur();
-        JoueurProduit joueur = factory.CreerJoueur(4);
-
+        GestionnairePartie();
     }
 }

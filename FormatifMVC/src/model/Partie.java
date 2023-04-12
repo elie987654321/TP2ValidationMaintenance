@@ -68,22 +68,6 @@ public class Partie {
     }
 
     // Methodes
-    public void DistribuerCartesInitials() {
-
-        this.PigerCarteJoueur1();
-        this.PigerCarteJoueur1();
-
-        this.PigerCarteJoueur2();
-        this.PigerCarteJoueur2();
-
-        this.PigerCarteJoueur3();
-        this.PigerCarteJoueur3();
-
-        this.PigerCarteJoueur4();
-        this.PigerCarteJoueur4();
-
-    }
-
     // J pour joueur, B pour banquier
     public char DeciderVainqueur(Joueur1 joueur) {
             return 'N';//TODO develloper
