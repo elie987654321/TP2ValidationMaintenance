@@ -45,7 +45,10 @@ public class Carte {
     //Pas sur si ok de mettre ça la car ça depend du nom et de l'emplacement de tout les fichiers d'image
     public String getPath()
     {
-        return System.getProperty("../images/paquets/" + this.rang + "_" + this.type + ".png");
+        //plus facile a debugger avec variable si probleme de path
+        String path = System.getProperty("user.dir") + "/src/images/paquet/" + this.rang + "_" + this.type + ".png";
+        return path;
+
     }
 
     public int getValeur() {
