@@ -1,40 +1,20 @@
 package model;
 
+import EnumPerso.EnumsCartes;
+
 public class Carte {
 
     // Attributs
-    private String nom;
-
-    public enum TypesCartes
-    {
-        trefle,
-        pique,
-        coeur,
-        carreau
-    }
-
-    public enum Rang
-    {
-        DEUX,
-        TROIS,
-        QUATRE,
-        CINQ,
-        SIX,
-        SEPT,
-        HUIT,
-        NEUF,
-        DIX,
-        VALET,
-        DAME,
-        ROI,
-        AS
-    }
-
     private int valeur;
 
+    private EnumsCartes.RangCartes rang;
+    private EnumsCartes.TypesCartes type;
+
+
     // Constructeur
-    public Carte(String nom, int valeur) {
-        this.nom = nom;
+    public Carte(EnumsCartes.TypesCartes type, EnumsCartes.RangCartes rang, int valeur) {
+        this.type = type;
+        this.rang = rang;
         this.valeur = valeur;
     }
 
@@ -43,16 +23,32 @@ public class Carte {
     {
         Carte autreCarte = (Carte) o;
 
-        return (this.nom == autreCarte.getNom()) && (this.valeur == autreCarte.getValeur());
+        return (this.rang == autreCarte.getRang()) && (this.valeur == autreCarte.getValeur());
     }
 
     // Accesseurs et mutateurs
-    public String getNom() {
-        return nom;
+    public EnumsCartes.RangCartes getRang()
+    {
+        return this.rang;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setRang(EnumsCartes.RangCartes rang)
+    {
+        this.rang = rang;
+    }
+
+    public String getNom()
+    {
+        return this.rang + " de " + this.valeur;
+    }
+
+    //Pas sur si ok de mettre ça la car ça depend du nom et de l'emplacement de tout les fichiers d'image
+    public String getPath()
+    {
+        //plus facile a debugger avec variable si probleme de path
+        String path = System.getProperty("user.dir") + "/src/images/paquet/" + this.rang + "_" + this.type + ".png";
+        return path;
+
     }
 
     public int getValeur() {
@@ -66,6 +62,6 @@ public class Carte {
     // ToString
     @Override
     public String toString() {
-        return nom + " " +valeur;
-}
+        return "Rang:" + this.rang + "Valeur:" + this.type;
+    }
 }

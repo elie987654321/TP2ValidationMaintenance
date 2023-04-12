@@ -32,6 +32,9 @@ public class GameGraphicalController{
     private Text joueur1;
     @FXML
     private Text pointJoueur1;
+
+    private int nbCarteJoueur1 = 0;
+
     @FXML
     private Button conserverJoueur1;
     @FXML
@@ -52,6 +55,8 @@ public class GameGraphicalController{
     // Joueur 2
     @FXML
     private Text joueur2;
+
+    private int nbCarteJoueur2 = 0;
     @FXML
     private Text pointJoueur2;
     @FXML
@@ -74,6 +79,8 @@ public class GameGraphicalController{
     // Joueur 3
     @FXML
     private Text joueur3;
+
+    private int nbCarteJoueur3 = 0;
     @FXML
     private Text pointJoueur3;
     @FXML
@@ -96,6 +103,8 @@ public class GameGraphicalController{
     // Joueur 4
     @FXML
     private Text joueur4;
+
+    private int nbCarteJoueur4 = 0;
     @FXML
     private Text pointJoueur4;
     @FXML
@@ -176,7 +185,6 @@ public class GameGraphicalController{
         {
             partieTerminer = true;
             partie.getJoueur2();
-
         }
     }
     @FXML
@@ -251,6 +259,7 @@ public class GameGraphicalController{
 
     private void InitializerPartie()
     {
+
         //Distribution des cartes
         DonnerCarteJoueur1(partie.PigerCarteJoueur1());
         DonnerCarteJoueur2(partie.PigerCarteJoueur2());
@@ -260,27 +269,118 @@ public class GameGraphicalController{
         DonnerCarteJoueur2(partie.PigerCarteJoueur2());
         DonnerCarteJoueur3(partie.PigerCarteJoueur3());
         DonnerCarteJoueur4(partie.PigerCarteJoueur4());
-
     }
 
     private void DonnerCarteJoueur1(Carte carte)
     {
-
+        nbCarteJoueur1++;
+        switch(nbCarteJoueur1)
+        {
+            case 1 :
+                this.carte1Joueur1.setImage(new Image(carte.getPath()));
+                break;
+            case 2 :
+                this.carte2Joueur1.setImage(new Image(carte.getPath()));
+                break;
+            case 3 :
+                this.carte3Joueur1.setImage(new Image(carte.getPath()));
+                break;
+            case 4 :
+                this.carte4Joueur1.setImage(new Image(carte.getPath()));
+                break;
+            case 5 :
+                this.carte5Joueur1.setImage(new Image(carte.getPath()));
+                break;
+            case 6 :
+                this.carte6Joueur1.setImage(new Image(carte.getPath()));
+                break;
+            default:
+                break;
+        }
     }
 
     private void DonnerCarteJoueur2(Carte carte)
     {
-
+        nbCarteJoueur2++;
+        switch(nbCarteJoueur2)
+        {
+            case 1 :
+                this.carte1Joueur2.setImage(new Image(carte.getPath()));
+                break;
+            case 2 :
+                this.carte2Joueur2.setImage(new Image(carte.getPath()));
+                break;
+            case 3 :
+                this.carte3Joueur2.setImage(new Image(carte.getPath()));
+                break;
+            case 4 :
+                this.carte4Joueur2.setImage(new Image(carte.getPath()));
+                break;
+            case 5 :
+                this.carte5Joueur2.setImage(new Image(carte.getPath()));
+                break;
+            case 6 :
+                this.carte6Joueur2.setImage(new Image(carte.getPath()));
+                break;
+            default:
+                break;
+        }
     }
 
     private void DonnerCarteJoueur3(Carte carte)
     {
-
+        nbCarteJoueur3++;
+        switch(nbCarteJoueur3)
+        {
+            case 1 :
+                this.carte1Joueur3.setImage(new Image(carte.getPath()));
+                break;
+            case 2 :
+                this.carte2Joueur3.setImage(new Image(carte.getPath()));
+                break;
+            case 3 :
+                this.carte3Joueur3.setImage(new Image(carte.getPath()));
+                break;
+            case 4 :
+                this.carte4Joueur3.setImage(new Image(carte.getPath()));
+                break;
+            case 5 :
+                this.carte5Joueur3.setImage(new Image(carte.getPath()));
+                break;
+            case 6 :
+                this.carte6Joueur3.setImage(new Image(carte.getPath()));
+                break;
+            default:
+                break;
+        }
     }
 
     private void DonnerCarteJoueur4(Carte carte)
     {
-
+        nbCarteJoueur4++;
+        switch(nbCarteJoueur4)
+        {
+            case 1 :
+                this.carte1Joueur4.setImage(new Image(carte.getPath()));
+                break;
+            case 2 :
+                this.carte2Joueur4.setImage(new Image(carte.getPath()));
+                break;
+            case 3 :
+                this.carte3Joueur4.setImage(new Image(carte.getPath()));
+                break;
+            case 4 :
+                this.carte4Joueur4.setImage(new Image(carte.getPath()));
+                break;
+            case 5 :
+                this.carte5Joueur4.setImage(new Image(carte.getPath()));
+                break;
+            case 6 :
+                this.carte6Joueur4.setImage(new Image(carte.getPath()));
+                break;
+            default:
+                break;
+        }
     }
 
     private void DeclareVainqueur(JoueurProduit vainqueur)
@@ -294,6 +394,9 @@ public class GameGraphicalController{
         croupier.setImage(new Image("images/croupier.png"));
         paquetDeCartes.setImage(new Image("images/paquetdecartes.png"));
         partie.DistribuerCartesInitials();
+
+        InitializerPartie();
+
         JoueurCreateur factory = new JoueurCreateur();
         JoueurProduit joueur = factory.CreerJoueur(4);
     }
