@@ -16,16 +16,17 @@
          <font>
             <Font size="38.0" />
          </font></Text>
-      <Button fx:id="conserverJoueur1" layoutX="106.0" layoutY="357.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" text="Conserver">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Button>
       <Button fx:id="demanderJoueur1" layoutX="239.0" layoutY="357.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" text="Demander">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
+      <Button fx:id="conserverJoueur1" layoutX="106.0" layoutY="357.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" text="Conserver">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+
       <ImageView fx:id="croupier" fitHeight="234.0" fitWidth="274.0" layoutX="510.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="paquetDeCartes" fitHeight="157.0" fitWidth="231.0" layoutX="532.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true" />
       <Text fx:id="joueur1" layoutX="106.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Joueur 1">

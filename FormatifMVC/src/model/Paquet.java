@@ -9,8 +9,6 @@ public class Paquet {
     // Attributs
     private ArrayList<Carte> paquet;
 
-    // Enum
-
 
     // Constructeur
     public Paquet() {

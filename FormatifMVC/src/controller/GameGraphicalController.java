@@ -12,10 +12,10 @@ import model.*;
 
 public class GameGraphicalController{
 
-    private boolean joueur1EnAttente = true;
-    private boolean joueur2EnAttente = true;
-    private boolean joueur3EnAttente = true;
-    private boolean joueur4EnAttente = true;
+    private boolean joueur1EnAttente = false;
+    private boolean joueur2EnAttente = false;
+    private boolean joueur3EnAttente = false;
+    private boolean joueur4EnAttente = false;
 
     private boolean joueur1Depasser = false;
     private boolean joueur2Depasser = false;
@@ -134,6 +134,8 @@ public class GameGraphicalController{
     @FXML
     private ImageView paquetDeCartes;
 
+    private int compteurTour = 1;
+
     @FXML
     private void handleButtonClickDemanderJoueur1(ActionEvent event) {
         if(!joueur1EnAttente && !joueur1Depasser && !partieTerminer)
@@ -149,13 +151,17 @@ public class GameGraphicalController{
             joueur2EnAttente = false;
             joueur3EnAttente = false;
             joueur4EnAttente = false;
-        }
 
+            compteurTour++;
+            tour.setText( Integer.toString(compteurTour));
+
+        }
+/*
         if(partie.getJoueur1().getPoints() >= 21)
         {
             partieTerminer = true;
             partie.getJoueur1();
-        }
+        }*/
     }
 
     @FXML
@@ -179,13 +185,16 @@ public class GameGraphicalController{
             joueur2EnAttente = false;
             joueur3EnAttente = false;
             joueur4EnAttente = false;
-        }
 
+            compteurTour++;
+            tour.setText( Integer.toString(compteurTour));
+        }
+/*
         if(partie.getJoueur2().getPoints() >= 21)
         {
             partieTerminer = true;
             partie.getJoueur2();
-        }
+        }*/
     }
     @FXML
     private void handleButtonClickConserverJoueur2(ActionEvent event) {
@@ -210,15 +219,19 @@ public class GameGraphicalController{
                 joueur2EnAttente = false;
                 joueur3EnAttente = false;
                 joueur4EnAttente = false;
-            }
 
+                compteurTour++;
+                tour.setText( Integer.toString(compteurTour));
+
+            }
+/*
             if(partie.getJoueur3().getPoints() >= 21)
             {
                 partieTerminer = true;
 
                 DeclareVainqueur(partie.getJoueur3());
             }
-
+*/
         }
 
     @FXML
@@ -232,7 +245,7 @@ public class GameGraphicalController{
         if(!joueur4EnAttente && !joueur4Depasser && !partieTerminer)
         {
             DonnerCarteJoueur4(partie.PigerCarteJoueur4());
-            joueur3EnAttente = true;
+            joueur4EnAttente = true;
         }
 
         if(joueur1EnAttente && joueur2EnAttente && joueur3EnAttente && joueur4EnAttente)
@@ -242,19 +255,23 @@ public class GameGraphicalController{
             joueur2EnAttente = false;
             joueur3EnAttente = false;
             joueur4EnAttente = false;
-        }
 
+            compteurTour++;
+            tour.setText( Integer.toString(compteurTour));
+
+        }
+/*
         if(partie.getJoueur4().getPoints() >= 21)
         {
             partieTerminer = true;
             DeclareVainqueur(partie.getJoueur4());
         }
-
+*/
     }
 
     @FXML
     private void handleButtonClickConserverJoueur4(ActionEvent event) {
-        this.joueur3EnAttente = true;
+        this.joueur4EnAttente = true;
     }
 
     private void GestionnairePartie()
@@ -267,15 +284,18 @@ public class GameGraphicalController{
 
     private void InitializerPartie()
     {
+        tour.setText( Integer.toString(compteurTour));
+
          //Distribution des cartes
         DonnerCarteJoueur1(partie.PigerCarteJoueur1());
-        DonnerCarteJoueur2(partie.PigerCarteJoueur2());
-        DonnerCarteJoueur3(partie.PigerCarteJoueur3());
-        DonnerCarteJoueur4(partie.PigerCarteJoueur4());
         DonnerCarteJoueur1(partie.PigerCarteJoueur1());
         DonnerCarteJoueur2(partie.PigerCarteJoueur2());
+        DonnerCarteJoueur2(partie.PigerCarteJoueur2());
+        DonnerCarteJoueur3(partie.PigerCarteJoueur3());
         DonnerCarteJoueur3(partie.PigerCarteJoueur3());
         DonnerCarteJoueur4(partie.PigerCarteJoueur4());
+        DonnerCarteJoueur4(partie.PigerCarteJoueur4());
+
     }
 
     private void DonnerCarteJoueur1(Carte carte)
@@ -404,9 +424,19 @@ public class GameGraphicalController{
 
     @FXML
     private void initialize() {
+        demanderJoueur1.setOnAction(this::handleButtonClickDemanderJoueur1);
+        demanderJoueur2.setOnAction(this::handleButtonClickDemanderJoueur2);
+        demanderJoueur3.setOnAction(this::handleButtonClickDemanderJoueur3);
+        demanderJoueur4.setOnAction(this::handleButtonClickDemanderJoueur4);
+
+        conserverJoueur1.setOnAction(this::handleButtonClickConserverJoueur1);
+        conserverJoueur2.setOnAction(this::handleButtonClickConserverJoueur2);
+        conserverJoueur3.setOnAction(this::handleButtonClickConserverJoueur3);
+        conserverJoueur4.setOnAction(this::handleButtonClickConserverJoueur4);
 
         croupier.setImage(new Image("images/croupier.png"));
         paquetDeCartes.setImage(new Image("images/paquetdecartes.png"));
+
         GestionnairePartie();
     }
 }
