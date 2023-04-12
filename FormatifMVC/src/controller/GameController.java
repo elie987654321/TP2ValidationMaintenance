@@ -1,35 +1,34 @@
 package controller;
 
 import javafx.application.Application;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.Callback;
-import model.Partie;
 
-import java.security.PrivateKey;
-import java.util.Scanner;
 
 public class GameController extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("Jeu du 21");
+        primaryStage.setTitle("Choix des noms");
 
-        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("../view/Game.fxml"));
+        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("../view/ChoixDesNoms.fxml"));
 
-        Scene scene = new Scene(fxmlLoader1.load(), 1320, 919);
+        Scene scene = new Scene(fxmlLoader1.load(), 674, 443);
         primaryStage.setScene(scene);
         primaryStage.show();
+/*
+        //===
+        Stage secondaryStage = new Stage();
+        secondaryStage.setTitle("Jeu du 21");
+
+        FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("/view/Game.fxml"));
+
+        Scene scene2 = new Scene(fxmlLoader2.load(), 1320, 919);
+        secondaryStage.setScene(scene2);
+        secondaryStage.show();
+*/
+
     }
 
 
