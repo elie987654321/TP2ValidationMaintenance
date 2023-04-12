@@ -1,0 +1,6 @@
+tour 0 - tout le monde recoit 2 cartes du joueur 1 à 4 - si quelqun perd il est out du tour 1 - si quelqu'un gagne au debut le partie est terminée
+tour 1 - chaque joueur envoie ca demande il y a un ordre de priorité sur les demandes - si quelqu'un gagne game over si perd out pour prochain tour etc
+tour 2 - etc...
+
+-si un joueur conserve sur un tour il ne peut pas conserver au prochain tour
+-A 2 joueur on joue jusqua ce que quelqun gagne ou sil conserve le prochain doit essayer de le battre

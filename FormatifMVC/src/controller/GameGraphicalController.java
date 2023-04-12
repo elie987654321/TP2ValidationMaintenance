@@ -27,6 +27,9 @@ public class GameGraphicalController{
     private Partie partie = new Partie();
 
 
+    @FXML
+    private Text gagnant;
+    
     // Joueur 1
     @FXML
     public Text joueur1;
@@ -153,7 +156,7 @@ public class GameGraphicalController{
             joueur4EnAttente = false;
 
             compteurTour++;
-            tour.setText( Integer.toString(compteurTour));
+            tour.setText("Tour "+Integer.toString(compteurTour));
 
         }
 /*
@@ -187,7 +190,7 @@ public class GameGraphicalController{
             joueur4EnAttente = false;
 
             compteurTour++;
-            tour.setText( Integer.toString(compteurTour));
+            tour.setText("Tour "+Integer.toString(compteurTour));
         }
 /*
         if(partie.getJoueur2().getPoints() >= 21)
@@ -221,7 +224,7 @@ public class GameGraphicalController{
                 joueur4EnAttente = false;
 
                 compteurTour++;
-                tour.setText( Integer.toString(compteurTour));
+                tour.setText("Tour " + Integer.toString(compteurTour));
 
             }
 /*
@@ -257,7 +260,7 @@ public class GameGraphicalController{
             joueur4EnAttente = false;
 
             compteurTour++;
-            tour.setText( Integer.toString(compteurTour));
+            tour.setText("Tour " + Integer.toString(compteurTour));
 
         }
 /*
@@ -284,7 +287,7 @@ public class GameGraphicalController{
 
     private void InitializerPartie()
     {
-        tour.setText( Integer.toString(compteurTour));
+        tour.setText("Tour " + Integer.toString(compteurTour));
 
          //Distribution des cartes
         DonnerCarteJoueur1(partie.PigerCarteJoueur1());

@@ -29,14 +29,14 @@
 
       <ImageView fx:id="croupier" fitHeight="234.0" fitWidth="274.0" layoutX="510.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="paquetDeCartes" fitHeight="157.0" fitWidth="231.0" layoutX="532.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true" />
-      <Text fx:id="joueur1" layoutX="106.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Joueur 1">
+      <Text fx:id="joueur1" layoutX="68.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Joueur 1">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
       <Text fx:id="pointJoueur1" layoutX="260.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Points 1">
          <font>
-            <Font size="16.0" />
+            <Font size="18.0" />
          </font>
       </Text>
       <ImageView fx:id="carte1Joueur1" fitHeight="245.0" fitWidth="157.0" layoutX="57.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true" />
@@ -55,14 +55,14 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Text fx:id="joueur2" layoutX="106.0" layoutY="531.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Joueur 2">
+      <Text fx:id="joueur2" layoutX="68.0" layoutY="494.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Joueur 2">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
       <Text fx:id="pointJoueur2" layoutX="260.0" layoutY="530.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Points 2">
          <font>
-            <Font size="16.0" />
+            <Font size="18.0" />
          </font>
       </Text>
       <ImageView fx:id="carte1Joueur2" fitHeight="245.0" fitWidth="157.0" layoutX="57.0" layoutY="544.0" pickOnBounds="true" preserveRatio="true" />
@@ -81,14 +81,14 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Text fx:id="joueur3" layoutX="886.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Joueur 3">
+      <Text fx:id="joueur3" layoutX="835.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Joueur 3">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
       <Text fx:id="pointJoueur3" layoutX="1040.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Points 3">
          <font>
-            <Font size="16.0" />
+            <Font size="18.0" />
          </font>
       </Text>
       <ImageView fx:id="carte1Joueur3" fitHeight="245.0" fitWidth="157.0" layoutX="837.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true" />
@@ -107,14 +107,14 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Text fx:id="joueur4" layoutX="886.0" layoutY="527.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Joueur 4">
+      <Text fx:id="joueur4" layoutX="835.0" layoutY="493.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Joueur 4">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
       <Text fx:id="pointJoueur4" layoutX="1040.0" layoutY="526.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Points 4">
          <font>
-            <Font size="16.0" />
+            <Font size="18.0" />
          </font>
       </Text>
       <ImageView fx:id="carte1Joueur4" fitHeight="245.0" fitWidth="157.0" layoutX="837.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true" />
@@ -123,5 +123,10 @@
       <ImageView fx:id="carte4Joueur4" fitHeight="245.0" fitWidth="157.0" layoutX="952.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="carte5Joueur4" fitHeight="245.0" fitWidth="157.0" layoutX="990.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="carte6Joueur4" fitHeight="245.0" fitWidth="157.0" layoutX="1025.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true" />
+      <Text fx:id="gagnant" layoutX="520.0" layoutY="734.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="254.0">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
