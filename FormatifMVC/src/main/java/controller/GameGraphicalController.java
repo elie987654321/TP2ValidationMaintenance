@@ -312,7 +312,7 @@ public class GameGraphicalController{
             joueur4EnAttente = false;
 
             compteurTour++;
-            tour.setText("Tour "+Integer.toString(compteurTour));
+            tour.setText("Tour " + Integer.toString(compteurTour));
         }
 
         if(partie.getJoueur4().getPoints() >= 21)
@@ -527,14 +527,14 @@ public class GameGraphicalController{
 
     private boolean tourTermine()
     {
-            return
-                (joueur1EnAttente || joueur1Conserve || joueur1Depasser)
-                &&
-                (joueur2EnAttente || joueur2Conserve || joueur2Depasser )
-                &&
-                (joueur3EnAttente || joueur3Conserve || joueur3Depasser)
-                &&
-                (joueur4EnAttente || joueur4Conserve || joueur4Depasser);
+        return
+            (joueur1EnAttente || joueur1Conserve || joueur1Depasser)
+            &&
+            (joueur2EnAttente || joueur2Conserve || joueur2Depasser )
+            &&
+            (joueur3EnAttente || joueur3Conserve || joueur3Depasser)
+            &&
+            (joueur4EnAttente || joueur4Conserve || joueur4Depasser);
     }
 
     private boolean partieTermine()
