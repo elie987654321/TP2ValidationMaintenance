@@ -14,6 +14,10 @@ import model.Partie;
 import java.util.ArrayList;
 
 public class GameGraphicalController{
+    private boolean joueur1ConserveTourPrecedent = false;
+    private boolean joueur2ConserveTourPrecedent = false;
+    private boolean joueur3ConserveTourPrecedent = false;
+    private boolean joueur4ConserveTourPrecedent = false;
 
     private boolean joueur1EnAttente = false;
     private boolean joueur2EnAttente = false;
@@ -41,6 +45,10 @@ public class GameGraphicalController{
     public Text joueur1;
     @FXML
     private Text pointJoueur1;
+    @FXML
+    private Text joueur1Elimine;
+    @FXML
+    private Text conserverErreur1;
 
     private int nbCarteJoueur1 = 0;
 
@@ -64,7 +72,10 @@ public class GameGraphicalController{
     // Joueur 2
     @FXML
     public Text joueur2;
-
+    @FXML
+    private Text joueur2Elimine;
+    @FXML
+    private Text conserverErreur2;
     private int nbCarteJoueur2 = 0;
     @FXML
     private Text pointJoueur2;
@@ -88,6 +99,10 @@ public class GameGraphicalController{
     // Joueur 3
     @FXML
     public Text joueur3;
+    @FXML
+    private Text joueur3Elimine;
+    @FXML
+    private Text conserverErreur3;
 
     private int nbCarteJoueur3 = 0;
     @FXML
@@ -112,6 +127,10 @@ public class GameGraphicalController{
     // Joueur 4
     @FXML
     public Text joueur4;
+    @FXML
+    private Text joueur4Elimine;
+    @FXML
+    private Text conserverErreur4;
 
     private int nbCarteJoueur4 = 0;
     @FXML
@@ -150,12 +169,14 @@ public class GameGraphicalController{
 
     @FXML
     private void handleButtonClickDemanderJoueur1(ActionEvent event) {
+
+        conserverErreur1.setText("");
+
         if(!joueur1EnAttente && !joueur1Depasser && !joueur1Conserve && !partieTerminer)
         {
             DonnerCarteJoueur1(partie.PigerCarteJoueur1());
             joueur1EnAttente = true;
         }
-
 
         if(partieTermine())
         {
@@ -177,6 +198,9 @@ public class GameGraphicalController{
         if(partie.getJoueur1().getPoints() >= 21)
         {
             joueur1Depasser = true;
+            joueur1Elimine.setText("Éliminé");
+            conserverJoueur1.setDisable(true);
+            demanderJoueur1.setDisable(true);
         }
 
         if(partieTermine())
@@ -190,6 +214,17 @@ public class GameGraphicalController{
     private void handleButtonClickConserverJoueur1(ActionEvent event) {
 
         joueur1Conserve = true;
+
+        if(joueur1ConserveTourPrecedent || !joueur1Conserve){
+            joueur1ConserveTourPrecedent = false;
+            conserverErreur1.setText("Vous ne pouvez pas conserver deux tour de suite");
+
+        }else if (!joueur1Conserve){
+            joueur1ConserveTourPrecedent = true;
+            conserverErreur1.setText("");
+
+        }
+
         if(partieTermine())
         {
             AfficherVainqueurs(GetVainqueurs());
@@ -199,6 +234,9 @@ public class GameGraphicalController{
 
     @FXML
     private void handleButtonClickDemanderJoueur2(ActionEvent event) {
+
+        conserverErreur2.setText("");
+
         if(!joueur2EnAttente && !joueur2Depasser && !joueur2Conserve && !partieTerminer)
         {
             DonnerCarteJoueur2(partie.PigerCarteJoueur2());
@@ -225,6 +263,9 @@ public class GameGraphicalController{
         if(partie.getJoueur2().getPoints() >= 21)
         {
             joueur2Depasser = true;
+            joueur2Elimine.setText("Éliminé");
+            conserverJoueur2.setDisable(true);
+            demanderJoueur2.setDisable(true);
         }
 
         if(partieTermine())
@@ -237,6 +278,17 @@ public class GameGraphicalController{
     private void handleButtonClickConserverJoueur2(ActionEvent event) {
 
         joueur2Conserve = true;
+
+        if(joueur2ConserveTourPrecedent || !joueur2Conserve){
+            joueur2ConserveTourPrecedent = false;
+            conserverErreur2.setText("Vous ne pouvez pas conserver deux tour de suite");
+
+        }else if (!joueur2Conserve) {
+            joueur2ConserveTourPrecedent = true;
+            conserverErreur2.setText("");
+
+        }
+
         if(partieTermine())
         {
             AfficherVainqueurs(GetVainqueurs());
@@ -246,6 +298,9 @@ public class GameGraphicalController{
 
     @FXML
     private void handleButtonClickDemanderJoueur3(ActionEvent event) {
+
+        conserverErreur3.setText("");
+
         if(!joueur3EnAttente && !joueur3Depasser && !joueur3Conserve && !partieTerminer)
         {
             DonnerCarteJoueur3(partie.PigerCarteJoueur3());
@@ -272,6 +327,9 @@ public class GameGraphicalController{
         if(partie.getJoueur3().getPoints() >= 21)
         {
             joueur3Depasser = true;
+            joueur3Elimine.setText("Éliminé");
+            conserverJoueur3.setDisable(true);
+            demanderJoueur3.setDisable(true);
         }
 
         if(partieTermine())
@@ -283,7 +341,19 @@ public class GameGraphicalController{
 
     @FXML
     private void handleButtonClickConserverJoueur3(ActionEvent event) {
-        this.joueur3Conserve = true;
+
+        joueur3Conserve = true;
+
+        if(joueur3ConserveTourPrecedent || !joueur3Conserve){
+            joueur3ConserveTourPrecedent = false;
+            conserverErreur3.setText("Vous ne pouvez pas conserver deux tour de suite");
+
+        }else if (!joueur1Conserve) {
+            joueur3ConserveTourPrecedent = true;
+            conserverErreur3.setText("");
+
+        }
+
         if(partieTermine())
         {
             AfficherVainqueurs(GetVainqueurs());
@@ -292,7 +362,9 @@ public class GameGraphicalController{
 
     @FXML
     private void handleButtonClickDemanderJoueur4(ActionEvent event) {
-        System.out.println("demander");
+
+        conserverErreur4.setText("");
+
         if(!joueur4EnAttente && !joueur4Depasser && !joueur4Conserve && !partieTerminer)
         {
             DonnerCarteJoueur4(partie.PigerCarteJoueur4());
@@ -318,6 +390,9 @@ public class GameGraphicalController{
         if(partie.getJoueur4().getPoints() >= 21)
         {
             joueur4Depasser = true;
+            joueur4Elimine.setText("Éliminé");
+            conserverJoueur4.setDisable(true);
+            demanderJoueur4.setDisable(true);
         }
         if(partieTermine())
         {
@@ -328,7 +403,19 @@ public class GameGraphicalController{
 
     @FXML
     private void handleButtonClickConserverJoueur4(ActionEvent event) {
-        this.joueur4Conserve = true;
+
+        joueur4Conserve = true;
+
+        if(joueur4ConserveTourPrecedent || !joueur4Conserve){
+            joueur4ConserveTourPrecedent = false;
+            conserverErreur4.setText("Vous ne pouvez pas conserver deux tour de suite");
+
+        }else if (!joueur1Conserve) {
+            joueur4ConserveTourPrecedent = true;
+            conserverErreur4.setText("");
+
+        }
+
         if(partieTermine())
         {
             AfficherVainqueurs(GetVainqueurs());

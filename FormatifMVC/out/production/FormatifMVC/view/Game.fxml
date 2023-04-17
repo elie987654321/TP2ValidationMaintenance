@@ -129,5 +129,45 @@
             <Font size="38.0" />
          </font>
       </Text>
+      <Text fx:id="joueur1Elimine" layoutX="362.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="147.751953125">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Text>
+      <Text fx:id="joueur3Elimine" layoutX="1141.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="147.751953125">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Text>
+      <Text fx:id="joueur2Elimine" layoutX="362.0" layoutY="508.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="147.751953125">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Text>
+      <Text fx:id="joueur4Elimine" layoutX="1141.0" layoutY="508.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="147.751953125">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Text>
+      <Text fx:id="conserverErreur1" layoutX="68.0" layoutY="431.0" strokeType="OUTSIDE" strokeWidth="0.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="conserverErreur2" layoutX="68.0" layoutY="877.0" strokeType="OUTSIDE" strokeWidth="0.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="conserverErreur3" layoutX="857.0" layoutY="431.0" strokeType="OUTSIDE" strokeWidth="0.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="conserverErreur4" layoutX="857.0" layoutY="876.0" strokeType="OUTSIDE" strokeWidth="0.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
