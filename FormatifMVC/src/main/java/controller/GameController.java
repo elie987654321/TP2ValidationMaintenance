@@ -12,7 +12,7 @@ public class GameController extends Application{
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Choix des noms");
 
-        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("../view/ChoixDesNoms.fxml"));
+        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/view/ChoixDesNoms.fxml"));
 
         Scene scene = new Scene(fxmlLoader1.load());
         primaryStage.setScene(scene);

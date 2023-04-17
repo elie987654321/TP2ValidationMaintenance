@@ -6,13 +6,12 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import model.Carte;
 import model.Joueurs.JoueurCreateur;
 import model.Joueurs.JoueurProduit;
-import model.*;
+import model.Partie;
 
-import java.sql.Array;
 import java.util.ArrayList;
-import java.util.Collection;
 
 public class GameGraphicalController{
 
@@ -562,8 +561,8 @@ public class GameGraphicalController{
         conserverJoueur3.setOnAction(this::handleButtonClickConserverJoueur3);
         conserverJoueur4.setOnAction(this::handleButtonClickConserverJoueur4);
 
-        croupier.setImage(new Image("images/croupier.png"));
-        paquetDeCartes.setImage(new Image("images/paquetdecartes.png"));
+        croupier.setImage(new Image("/images/croupier.png"));
+        paquetDeCartes.setImage(new Image("/images/paquetdecartes.png"));
 
         GestionnairePartie();
     }

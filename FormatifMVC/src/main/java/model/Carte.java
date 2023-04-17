@@ -46,7 +46,7 @@ public class Carte {
     public String getPath()
     {
         //plus facile a debugger avec variable si probleme de path
-        String path = Paths.get("").toAbsolutePath().toString() + "/src/images/paquet/" + this.rang + "_" + this.type + ".png";
+        String path = Paths.get("").toAbsolutePath().toString() + "/src/main/resources/images/paquet/" + this.rang + "_" + this.type + ".png";
         return path;
 
     }

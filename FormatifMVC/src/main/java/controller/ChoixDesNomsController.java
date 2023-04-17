@@ -29,7 +29,7 @@ public class ChoixDesNomsController {
 
             primaryStage.setTitle("Jeu du 21");
 
-            FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("../view/Game.fxml"));
+            FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/view/Game.fxml"));
             Scene scene = new Scene(fxmlLoader1.load());
             GameGraphicalController gameGraphicalController = (GameGraphicalController) fxmlLoader1.getController();
 
