@@ -8,7 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class ChoixDesNomsGraphicalController {
+public class ChoixDesNomsController {
 
 
     @FXML
@@ -29,7 +29,7 @@ public class ChoixDesNomsGraphicalController {
 
             primaryStage.setTitle("Jeu du 21");
 
-            FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/view/Game.fxml"));
+            FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("../view/Game.fxml"));
             Scene scene = new Scene(fxmlLoader1.load());
             GameGraphicalController gameGraphicalController = (GameGraphicalController) fxmlLoader1.getController();
 

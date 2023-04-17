@@ -1,7 +1,5 @@
 package model;
 
-import EnumPerso.EnumsCartes;
-
 import java.nio.file.Paths;
 
 public class Carte {

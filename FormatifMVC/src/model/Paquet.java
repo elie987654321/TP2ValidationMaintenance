@@ -1,7 +1,5 @@
 package model;
 
-import EnumPerso.EnumsCartes;
-
 import java.util.ArrayList;
 
 public class Paquet {
