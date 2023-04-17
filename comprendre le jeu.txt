@@ -24,7 +24,8 @@ Appuyer sur bouton conserver
 
 Appuyer sur bouton demander
 	si le joueur dépasse
-		le joueur est hors jeu	
+		le joueur est hors jeu
+	
 
 	si le joueur na pas conserver ce tour
 	et si le joueur n'a pas piger ce tour
