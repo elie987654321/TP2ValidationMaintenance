@@ -9,6 +9,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class ChoixDesNomsGraphicalController {
+
+
     @FXML
     private TextField nomJoueur1;
     @FXML

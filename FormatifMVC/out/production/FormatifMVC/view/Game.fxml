@@ -15,7 +15,13 @@
       <Text fx:id="tour" layoutX="586.0" layoutY="641.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tour 0" wrappingWidth="147.751953125">
          <font>
             <Font size="38.0" />
-         </font></Text>
+         </font>
+      </Text>
+      <Text fx:id="vainqueur" layoutX="586.0" layoutY="641.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tour 0" wrappingWidth="147.751953125">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Text>
       <Button fx:id="demanderJoueur1" layoutX="239.0" layoutY="357.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" text="Demander">
          <font>
             <Font size="15.0" />

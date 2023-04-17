@@ -10,6 +10,10 @@ import model.Joueurs.JoueurCreateur;
 import model.Joueurs.JoueurProduit;
 import model.*;
 
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.Collection;
+
 public class GameGraphicalController{
 
     private boolean joueur1EnAttente = false;
@@ -21,6 +25,11 @@ public class GameGraphicalController{
     private boolean joueur2Depasser = false;
     private boolean joueur3Depasser = false;
     private boolean joueur4Depasser = false;
+
+    private boolean joueur1Conserve = false;
+    private boolean joueur2Conserve = false;
+    private boolean joueur3Conserve = false;
+    private boolean joueur4Conserve = false;
 
     private boolean partieTerminer;
 
@@ -140,15 +149,17 @@ public class GameGraphicalController{
     private int compteurTour = 1;
 
     @FXML
+    private Text vainqueur;
+
+    @FXML
     private void handleButtonClickDemanderJoueur1(ActionEvent event) {
-        if(!joueur1EnAttente && !joueur1Depasser && !partieTerminer)
+        if(!joueur1EnAttente && !joueur1Depasser && !joueur1Conserve && !partieTerminer)
         {
             DonnerCarteJoueur1(partie.PigerCarteJoueur1());
             joueur1EnAttente = true;
         }
 
-        if(joueur1EnAttente && joueur2EnAttente && joueur3EnAttente && joueur4EnAttente)
-
+        if(tourTermine())
         {
             joueur1EnAttente = false;
             joueur2EnAttente = false;
@@ -157,31 +168,34 @@ public class GameGraphicalController{
 
             compteurTour++;
             tour.setText("Tour "+Integer.toString(compteurTour));
-
         }
-/*
+
         if(partie.getJoueur1().getPoints() >= 21)
         {
-            partieTerminer = true;
-            partie.getJoueur1();
-        }*/
+            joueur1Depasser = true;
+        }
+
+        if(partieTerminer)
+        {
+            AfficherVainqueurs(GetVainqueurs());
+        }
     }
 
     @FXML
     private void handleButtonClickConserverJoueur1(ActionEvent event) {
-        joueur1EnAttente = true;
+        joueur1Conserve = true;
     }
 
 
     @FXML
     private void handleButtonClickDemanderJoueur2(ActionEvent event) {
-        if(!joueur2EnAttente && !joueur2Depasser && !partieTerminer)
+        if(!joueur2EnAttente && !joueur2Depasser && !joueur2Conserve && !partieTerminer)
         {
             DonnerCarteJoueur2(partie.PigerCarteJoueur2());
             joueur2EnAttente = true;
         }
 
-        if(joueur1EnAttente && joueur2EnAttente && joueur3EnAttente && joueur4EnAttente)
+        if(tourTermine())
 
         {
             joueur1EnAttente = false;
@@ -201,22 +215,27 @@ public class GameGraphicalController{
     }
     @FXML
     private void handleButtonClickConserverJoueur2(ActionEvent event) {
-        System.out.println("conserver");
-
-        joueur2EnAttente = true;
+        joueur2Conserve = true;
     }
 
 
     @FXML
         private void handleButtonClickDemanderJoueur3(ActionEvent event) {
-            if(!joueur3EnAttente && !joueur3Depasser && !partieTerminer)
+            if(!joueur3EnAttente && !joueur3Depasser && !joueur3Conserve && !partieTerminer)
             {
                 DonnerCarteJoueur3(partie.PigerCarteJoueur3());
                 joueur3EnAttente = true;
             }
 
-            if(joueur1EnAttente && joueur2EnAttente && joueur3EnAttente && joueur4EnAttente)
-
+            if(
+                    (joueur1EnAttente || joueur1Conserve || joueur1Depasser)
+                    &&
+                    (joueur2EnAttente || joueur2Conserve || joueur2Depasser )
+                    &&
+                    (joueur3EnAttente || joueur3Conserve || joueur3Depasser)
+                    &&
+                    (joueur4EnAttente || joueur4Conserve || joueur4Depasser)
+            )
             {
                 joueur1EnAttente = false;
                 joueur2EnAttente = false;
@@ -225,7 +244,6 @@ public class GameGraphicalController{
 
                 compteurTour++;
                 tour.setText("Tour " + Integer.toString(compteurTour));
-
             }
 /*
             if(partie.getJoueur3().getPoints() >= 21)
@@ -239,20 +257,28 @@ public class GameGraphicalController{
 
     @FXML
     private void handleButtonClickConserverJoueur3(ActionEvent event) {
-        this.joueur3EnAttente = true;
+        this.joueur3Conserve = true;
     }
 
     @FXML
     private void handleButtonClickDemanderJoueur4(ActionEvent event) {
         System.out.println("demander");
-        if(!joueur4EnAttente && !joueur4Depasser && !partieTerminer)
+        if(!joueur4EnAttente && !joueur4Depasser && !joueur4Conserve && !partieTerminer)
         {
             DonnerCarteJoueur4(partie.PigerCarteJoueur4());
             joueur4EnAttente = true;
         }
 
-        if(joueur1EnAttente && joueur2EnAttente && joueur3EnAttente && joueur4EnAttente)
-
+        if
+        (
+            (joueur1EnAttente || joueur1Conserve || joueur1Depasser)
+            &&
+            (joueur2EnAttente || joueur2Conserve || joueur2Depasser )
+            &&
+            (joueur3EnAttente || joueur3Conserve || joueur3Depasser)
+            &&
+            (joueur4EnAttente || joueur4Conserve || joueur4Depasser)
+        )
         {
             joueur1EnAttente = false;
             joueur2EnAttente = false;
@@ -274,7 +300,7 @@ public class GameGraphicalController{
 
     @FXML
     private void handleButtonClickConserverJoueur4(ActionEvent event) {
-        this.joueur4EnAttente = true;
+        this.joueur4Conserve = true;
     }
 
     private void GestionnairePartie()
@@ -420,9 +446,74 @@ public class GameGraphicalController{
         this.pointJoueur4.setText(Integer.toString(this.partie.getJoueur4().getPoints()));
     }
 
-    private void DeclareVainqueur(JoueurProduit vainqueur)
+    private ArrayList<String> GetVainqueurs()
     {
+        int pointJoueur1Decision = joueur1Depasser ? 0 : partie.getJoueur1().getPoints();
+        int pointJoueur2Decision = joueur2Depasser ? 0 : partie.getJoueur2().getPoints();
+        int pointJoueur3Decision = joueur3Depasser ? 0 : partie.getJoueur3().getPoints();
+        int pointJoueur4Decision = joueur4Depasser ? 0 : partie.getJoueur4().getPoints();
 
+        int maximum = Math.max(pointJoueur1Decision, pointJoueur2Decision);
+        maximum = Math.max(maximum, pointJoueur3Decision);
+        maximum = Math.max(maximum, pointJoueur4Decision);
+
+        ArrayList<String> lesVainqueurs = new ArrayList<String>();
+
+        if( pointJoueur1Decision == maximum)
+        {
+            lesVainqueurs.add(joueur1.getText());
+        }
+        if(pointJoueur2Decision == maximum)
+        {
+            lesVainqueurs.add(joueur2.getText());
+        }
+        if(pointJoueur3Decision == maximum)
+        {
+            lesVainqueurs.add((joueur3.getText()));
+        }
+        if(pointJoueur4Decision == maximum)
+        {
+            lesVainqueurs.add(joueur4.getText());
+        }
+
+        return lesVainqueurs;
+    }
+
+    private void AfficherVainqueurs(ArrayList<String> listeVainqueurs)
+    {
+        String vainqueurs = "VAINQUEUR  \n";
+
+        for (String v: listeVainqueurs)
+        {
+            vainqueurs += v;
+            vainqueurs += "\n";
+        }
+
+        vainqueur.setText(vainqueurs);
+    }
+
+    private boolean tourTermine()
+    {
+            return
+                (joueur1EnAttente || joueur1Conserve || joueur1Depasser)
+                &&
+                (joueur2EnAttente || joueur2Conserve || joueur2Depasser )
+                &&
+                (joueur3EnAttente || joueur3Conserve || joueur3Depasser)
+                &&
+                (joueur4EnAttente || joueur4Conserve || joueur4Depasser);
+    }
+
+    private boolean partieTermine()
+    {
+        return
+                (joueur1Conserve || joueur1Depasser)
+                &&
+                (joueur2Conserve || joueur2Depasser)
+                &&
+                (joueur3Conserve || joueur3Depasser)
+                &&
+                (joueur4Conserve || joueur4Depasser);
     }
 
     @FXML
