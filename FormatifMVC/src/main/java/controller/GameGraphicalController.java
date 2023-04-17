@@ -222,7 +222,7 @@ public class GameGraphicalController{
             tour.setText("Tour "+Integer.toString(compteurTour));
         }
 
-        if(partie.getJoueur1().getPoints() >= 21)
+        if(partie.getJoueur2().getPoints() >= 21)
         {
             joueur2Depasser = true;
         }
@@ -245,41 +245,41 @@ public class GameGraphicalController{
 
 
     @FXML
-        private void handleButtonClickDemanderJoueur3(ActionEvent event) {
-            if(!joueur3EnAttente && !joueur3Depasser && !joueur3Conserve && !partieTerminer)
-            {
-                DonnerCarteJoueur3(partie.PigerCarteJoueur3());
-                joueur3EnAttente = true;
-            }
-
-            if(partieTermine())
-            {
-                partieTerminer = true;
-                AfficherVainqueurs(GetVainqueurs());
-            }
-
-            if(tourTermine() && !partieTerminer)
-            {
-                joueur1EnAttente = false;
-                joueur2EnAttente = false;
-                joueur3EnAttente = false;
-                joueur4EnAttente = false;
-
-                compteurTour++;
-                tour.setText("Tour "+Integer.toString(compteurTour));
-            }
-
-            if(partie.getJoueur2().getPoints() >= 21)
-            {
-                joueur3Depasser = true;
-            }
-
-            if(partieTermine())
-            {
-                partieTerminer = true;
-                AfficherVainqueurs(GetVainqueurs());
-            }
+    private void handleButtonClickDemanderJoueur3(ActionEvent event) {
+        if(!joueur3EnAttente && !joueur3Depasser && !joueur3Conserve && !partieTerminer)
+        {
+            DonnerCarteJoueur3(partie.PigerCarteJoueur3());
+            joueur3EnAttente = true;
         }
+
+        if(partieTermine())
+        {
+            partieTerminer = true;
+            AfficherVainqueurs(GetVainqueurs());
+        }
+
+        if(tourTermine() && !partieTerminer)
+        {
+            joueur1EnAttente = false;
+            joueur2EnAttente = false;
+            joueur3EnAttente = false;
+            joueur4EnAttente = false;
+
+            compteurTour++;
+            tour.setText("Tour "+Integer.toString(compteurTour));
+        }
+
+        if(partie.getJoueur3().getPoints() >= 21)
+        {
+            joueur3Depasser = true;
+        }
+
+        if(partieTermine())
+        {
+            partieTerminer = true;
+            AfficherVainqueurs(GetVainqueurs());
+        }
+    }
 
     @FXML
     private void handleButtonClickConserverJoueur3(ActionEvent event) {
