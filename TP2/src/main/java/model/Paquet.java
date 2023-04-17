@@ -4,9 +4,8 @@ import java.util.ArrayList;
 
 public class Paquet {
 
-    // Attributs
+    // Attribut
     private ArrayList<Carte> paquet;
-
 
     // Constructeur
     public Paquet() {
@@ -28,7 +27,7 @@ public class Paquet {
             if (rang == EnumsCartes.RangCartes.AS){
                 point = 11;
             }
-            else if (rang == EnumsCartes.RangCartes.VALET || rang == EnumsCartes.RangCartes.REINE ||rang == EnumsCartes.RangCartes.ROIS){
+            else if (rang == EnumsCartes.RangCartes.VALET || rang == EnumsCartes.RangCartes.REINE ||rang == EnumsCartes.RangCartes.ROI){
                 point = 10;
             }
             else {
@@ -54,7 +53,6 @@ public class Paquet {
 
             return cartePigee;
         } else {
-            System.out.println("Le paquet est vide");
             return null;
         }
     }

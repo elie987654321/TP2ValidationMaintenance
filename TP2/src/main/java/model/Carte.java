@@ -6,10 +6,8 @@ public class Carte {
 
     // Attributs
     private int valeur;
-
     private EnumsCartes.RangCartes rang;
     private EnumsCartes.TypesCartes type;
-
 
     // Constructeur
     public Carte(EnumsCartes.TypesCartes type, EnumsCartes.RangCartes rang, int valeur) {
@@ -18,30 +16,33 @@ public class Carte {
         this.valeur = valeur;
     }
 
-    @Override
-    public boolean equals(Object o)
-    {
-        Carte autreCarte = (Carte) o;
-
-        return (this.rang == autreCarte.getRang()) && (this.valeur == autreCarte.getValeur());
+    // Accesseurs et mutateurs
+    public int getValeur() {
+        return valeur;
     }
 
-    // Accesseurs et mutateurs
+    public void setValeur(int valeur) {
+        this.valeur = valeur;
+    }
+
     public EnumsCartes.RangCartes getRang()
     {
         return this.rang;
     }
 
-    public void setRang(EnumsCartes.RangCartes rang)
-    {
+    public void setRang(EnumsCartes.RangCartes rang) {
         this.rang = rang;
     }
 
-    public String getNom()
-    {
-        return this.rang + " de " + this.valeur;
+    public EnumsCartes.TypesCartes getType() {
+        return type;
     }
 
+    public void setType(EnumsCartes.TypesCartes type) {
+        this.type = type;
+    }
+
+    // Methodes
     //Pas sur si ok de mettre ça la car ça depend du nom et de l'emplacement de tout les fichiers d'image
     public String getPath()
     {
@@ -51,15 +52,17 @@ public class Carte {
 
     }
 
-    public int getValeur() {
-        return valeur;
+    // Overrides
+    // equals
+    @Override
+    public boolean equals(Object o)
+    {
+        Carte autreCarte = (Carte) o;
+
+        return (this.rang == autreCarte.getRang()) && (this.valeur == autreCarte.getValeur());
     }
 
-    public void setValeur(int valeur) {
-        this.valeur = valeur;
-    }
-
-    // ToString
+    // toString
     @Override
     public String toString() {
         return "Rang:" + this.rang + "Valeur:" + this.type;
