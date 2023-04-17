@@ -180,11 +180,21 @@ public class GameGraphicalController{
             joueur1Depasser = true;
         }
 
+        if(partieTermine())
+        {
+            partieTerminer = true;
+            AfficherVainqueurs(GetVainqueurs());
+        }
     }
 
     @FXML
     private void handleButtonClickConserverJoueur1(ActionEvent event) {
+
         joueur1Conserve = true;
+        if(partieTermine())
+        {
+            AfficherVainqueurs(GetVainqueurs());
+        }
     }
 
 
@@ -217,10 +227,21 @@ public class GameGraphicalController{
         {
             joueur2Depasser = true;
         }
+
+        if(partieTermine())
+        {
+            partieTerminer = true;
+            AfficherVainqueurs(GetVainqueurs());
+        }
     }
     @FXML
     private void handleButtonClickConserverJoueur2(ActionEvent event) {
+
         joueur2Conserve = true;
+        if(partieTermine())
+        {
+            AfficherVainqueurs(GetVainqueurs());
+        }
     }
 
 
@@ -253,11 +274,21 @@ public class GameGraphicalController{
             {
                 joueur3Depasser = true;
             }
+
+            if(partieTermine())
+            {
+                partieTerminer = true;
+                AfficherVainqueurs(GetVainqueurs());
+            }
         }
 
     @FXML
     private void handleButtonClickConserverJoueur3(ActionEvent event) {
         this.joueur3Conserve = true;
+        if(partieTermine())
+        {
+            AfficherVainqueurs(GetVainqueurs());
+        }
     }
 
     @FXML
@@ -289,11 +320,20 @@ public class GameGraphicalController{
         {
             joueur4Depasser = true;
         }
+        if(partieTermine())
+        {
+            partieTerminer = true;
+            AfficherVainqueurs(GetVainqueurs());
+        }
     }
 
     @FXML
     private void handleButtonClickConserverJoueur4(ActionEvent event) {
         this.joueur4Conserve = true;
+        if(partieTermine())
+        {
+            AfficherVainqueurs(GetVainqueurs());
+        }
     }
 
     private void GestionnairePartie()
