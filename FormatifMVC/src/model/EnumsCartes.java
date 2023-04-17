@@ -1,4 +1,4 @@
-package EnumPerso;
+package model;
 
 public class EnumsCartes {
     public enum RangCartes {
