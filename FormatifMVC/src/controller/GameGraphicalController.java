@@ -33,11 +33,9 @@ public class GameGraphicalController{
 
     private boolean partieTerminer;
 
-    private Partie partie = new Partie();
+    private Partie partie;
 
 
-    @FXML
-    private Text gagnant;
     
     // Joueur 1
     @FXML
@@ -149,7 +147,7 @@ public class GameGraphicalController{
     private int compteurTour = 1;
 
     @FXML
-    private Text vainqueur;
+    private Text gagnant;
 
     @FXML
     private void handleButtonClickDemanderJoueur1(ActionEvent event) {
@@ -159,7 +157,14 @@ public class GameGraphicalController{
             joueur1EnAttente = true;
         }
 
-        if(tourTermine())
+
+        if(partieTermine())
+        {
+            partieTerminer = true;
+            AfficherVainqueurs(GetVainqueurs());
+        }
+
+        if(tourTermine() && !partieTerminer)
         {
             joueur1EnAttente = false;
             joueur2EnAttente = false;
@@ -175,10 +180,6 @@ public class GameGraphicalController{
             joueur1Depasser = true;
         }
 
-        if(partieTerminer)
-        {
-            AfficherVainqueurs(GetVainqueurs());
-        }
     }
 
     @FXML
@@ -195,8 +196,13 @@ public class GameGraphicalController{
             joueur2EnAttente = true;
         }
 
-        if(tourTermine())
+        if(partieTermine())
+        {
+            partieTerminer = true;
+            AfficherVainqueurs(GetVainqueurs());
+        }
 
+        if(tourTermine() && !partieTerminer)
         {
             joueur1EnAttente = false;
             joueur2EnAttente = false;
@@ -206,12 +212,11 @@ public class GameGraphicalController{
             compteurTour++;
             tour.setText("Tour "+Integer.toString(compteurTour));
         }
-/*
-        if(partie.getJoueur2().getPoints() >= 21)
+
+        if(partie.getJoueur1().getPoints() >= 21)
         {
-            partieTerminer = true;
-            partie.getJoueur2();
-        }*/
+            joueur2Depasser = true;
+        }
     }
     @FXML
     private void handleButtonClickConserverJoueur2(ActionEvent event) {
@@ -227,15 +232,13 @@ public class GameGraphicalController{
                 joueur3EnAttente = true;
             }
 
-            if(
-                    (joueur1EnAttente || joueur1Conserve || joueur1Depasser)
-                    &&
-                    (joueur2EnAttente || joueur2Conserve || joueur2Depasser )
-                    &&
-                    (joueur3EnAttente || joueur3Conserve || joueur3Depasser)
-                    &&
-                    (joueur4EnAttente || joueur4Conserve || joueur4Depasser)
-            )
+            if(partieTermine())
+            {
+                partieTerminer = true;
+                AfficherVainqueurs(GetVainqueurs());
+            }
+
+            if(tourTermine() && !partieTerminer)
             {
                 joueur1EnAttente = false;
                 joueur2EnAttente = false;
@@ -243,16 +246,13 @@ public class GameGraphicalController{
                 joueur4EnAttente = false;
 
                 compteurTour++;
-                tour.setText("Tour " + Integer.toString(compteurTour));
+                tour.setText("Tour "+Integer.toString(compteurTour));
             }
-/*
-            if(partie.getJoueur3().getPoints() >= 21)
-            {
-                partieTerminer = true;
 
-                DeclareVainqueur(partie.getJoueur3());
+            if(partie.getJoueur2().getPoints() >= 21)
+            {
+                joueur3Depasser = true;
             }
-*/
         }
 
     @FXML
@@ -268,17 +268,13 @@ public class GameGraphicalController{
             DonnerCarteJoueur4(partie.PigerCarteJoueur4());
             joueur4EnAttente = true;
         }
+        if(partieTermine())
+        {
+            partieTerminer = true;
+            AfficherVainqueurs(GetVainqueurs());
+        }
 
-        if
-        (
-            (joueur1EnAttente || joueur1Conserve || joueur1Depasser)
-            &&
-            (joueur2EnAttente || joueur2Conserve || joueur2Depasser )
-            &&
-            (joueur3EnAttente || joueur3Conserve || joueur3Depasser)
-            &&
-            (joueur4EnAttente || joueur4Conserve || joueur4Depasser)
-        )
+        if(tourTermine() && !partieTerminer)
         {
             joueur1EnAttente = false;
             joueur2EnAttente = false;
@@ -286,16 +282,13 @@ public class GameGraphicalController{
             joueur4EnAttente = false;
 
             compteurTour++;
-            tour.setText("Tour " + Integer.toString(compteurTour));
-
+            tour.setText("Tour "+Integer.toString(compteurTour));
         }
-/*
+
         if(partie.getJoueur4().getPoints() >= 21)
         {
-            partieTerminer = true;
-            DeclareVainqueur(partie.getJoueur4());
+            joueur4Depasser = true;
         }
-*/
     }
 
     @FXML
@@ -313,6 +306,7 @@ public class GameGraphicalController{
 
     private void InitializerPartie()
     {
+        partie = new Partie();
         tour.setText("Tour " + Integer.toString(compteurTour));
 
          //Distribution des cartes
@@ -489,7 +483,7 @@ public class GameGraphicalController{
             vainqueurs += "\n";
         }
 
-        vainqueur.setText(vainqueurs);
+        gagnant.setText(vainqueurs);
     }
 
     private boolean tourTermine()

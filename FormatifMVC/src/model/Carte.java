@@ -2,6 +2,8 @@ package model;
 
 import EnumPerso.EnumsCartes;
 
+import java.nio.file.Paths;
+
 public class Carte {
 
     // Attributs
@@ -46,7 +48,7 @@ public class Carte {
     public String getPath()
     {
         //plus facile a debugger avec variable si probleme de path
-        String path = System.getProperty("user.dir") + "/src/images/paquet/" + this.rang + "_" + this.type + ".png";
+        String path = Paths.get("").toAbsolutePath().toString() + "/src/images/paquet/" + this.rang + "_" + this.type + ".png";
         return path;
 
     }
