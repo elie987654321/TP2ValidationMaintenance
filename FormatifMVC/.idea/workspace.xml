@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f4d1aa3-e692-4b54-ac22-9d0d75d441ff" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/FormatifMVC.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FormatifMVC.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FormatifMVC/controller/ChoixDesNomsGraphicalController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FormatifMVC/controller/ChoixDesNomsGraphicalController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FormatifMVC/controller/GameGraphicalController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FormatifMVC/controller/GameGraphicalController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FormatifMVC/view/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FormatifMVC/view/Game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ChoixDesNomsGraphicalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ChoixDesNomsGraphicalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/GameGraphicalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GameGraphicalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Game.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="5f4d1aa3-e692-4b54-ac22-9d0d75d441ff" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,16 +28,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Utilisateur/Documents/GitHub/TP2ValidationMaintenance/FormatifMVC&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Utilisateur/Documents/GitHub/TP2ValidationMaintenance/TP2",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="GameController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="controller.GameController" />

@@ -19,6 +19,13 @@ public class GameGraphicalController{
     private boolean joueur3ConserveTourPrecedent = false;
     private boolean joueur4ConserveTourPrecedent = false;
 
+
+    private int joueur1DernierTourConserver  =  -1;
+    private int joueur2DernierTourConserver  =  -1;
+    private int joueur3DernierTourConserver  =  -1;
+    private int joueur4DernierTourConserver  =  -1;
+
+
     private boolean joueur1EnAttente = false;
     private boolean joueur2EnAttente = false;
     private boolean joueur3EnAttente = false;
@@ -39,7 +46,23 @@ public class GameGraphicalController{
     private Partie partie;
 
 
-    
+    private boolean joueur1HorsJeu;
+
+    private boolean joueur2HorsJeu;
+
+    private boolean joueur3HorsJeu;
+
+    private boolean joueur4HorsJeu;
+
+    private boolean duel;
+
+    private boolean joueur1ConserveDuel;
+    private boolean joueur2ConserveDuel;
+    private boolean joueur3ConserveDuel;
+    private boolean joueur4ConserveDuel;
+
+
+
     // Joueur 1
     @FXML
     public Text joueur1;
@@ -156,6 +179,8 @@ public class GameGraphicalController{
     @FXML
     private Text tour;
 
+    private int tourInteger;
+
     // Dealer
     @FXML
     private ImageView croupier;
@@ -167,9 +192,30 @@ public class GameGraphicalController{
     @FXML
     private Text gagnant;
 
+    private boolean joueur1DemanderCeTour;
+
+    private boolean joueur2DemanderCeTour;
+
+    private boolean joueur3DemanderCeTour;
+
+    private boolean joueur4DemanderCeTour;
+
     @FXML
     private void handleButtonClickDemanderJoueur1(ActionEvent event) {
+        if(!(joueur1DernierTourConserver == tourInteger) && (!joueur1DemanderCeTour) && (!joueur1Depasser) && (!joueur1ConserveDuel ))
+        {
+            joueur1DemanderCeTour = true;
+            DonnerCarteJoueur1(partie.PigerCarteJoueur1());
 
+            if(partie.getJoueur1().getPoints() > 21)
+            {
+                joueur1Depasser = true;
+            }
+        }
+
+        GestionFinTour();
+        GestionFinPartie();
+/*
         conserverErreur1.setText("");
 
         if(!joueur1EnAttente && !joueur1Depasser && !joueur1Conserve && !partieTerminer)
@@ -207,15 +253,23 @@ public class GameGraphicalController{
         {
             partieTerminer = true;
             AfficherVainqueurs(GetVainqueurs());
-        }
+        }*/
     }
 
     @FXML
     private void handleButtonClickConserverJoueur1(ActionEvent event) {
-
+        if(duel == false && !(joueur1DernierTourConserver == tourInteger - 1))
+        {
+            joueur1DernierTourConserver = tourInteger;
+        }
+        else if(duel == true)
+        {
+            joueur1ConserveDuel = true;
+        }
+/*
         joueur1Conserve = true;
 
-/*        if(joueur1ConserveTourPrecedent || !joueur1Conserve){
+        if(joueur1ConserveTourPrecedent || !joueur1Conserve){
             joueur1ConserveTourPrecedent = false;
             conserverErreur1.setText("Vous ne pouvez pas conserver deux tour de suite");
 
@@ -223,18 +277,35 @@ public class GameGraphicalController{
             joueur1ConserveTourPrecedent = true;
             conserverErreur1.setText("");
 
-        }*/
+        }
 
         if(partieTermine())
         {
             AfficherVainqueurs(GetVainqueurs());
         }
+        */
+
+        GestionFinTour();
+        GestionFinPartie();
     }
 
 
     @FXML
     private void handleButtonClickDemanderJoueur2(ActionEvent event) {
+        if(!(joueur2DernierTourConserver == tourInteger) && (!joueur2DemanderCeTour) && (!joueur2Depasser) && (!joueur2ConserveDuel ))
+        {
+            joueur2DemanderCeTour = true;
+            DonnerCarteJoueur2(partie.PigerCarteJoueur2());
 
+            if(partie.getJoueur2().getPoints() > 21)
+            {
+                joueur2Depasser = true;
+            }
+        }
+
+        GestionFinTour();
+        GestionFinPartie();
+                /*
         conserverErreur2.setText("");
 
         if(!joueur2EnAttente && !joueur2Depasser && !joueur2Conserve && !partieTerminer)
@@ -272,14 +343,14 @@ public class GameGraphicalController{
         {
             partieTerminer = true;
             AfficherVainqueurs(GetVainqueurs());
-        }
+        }*/
     }
     @FXML
     private void handleButtonClickConserverJoueur2(ActionEvent event) {
-
+/*
         joueur2Conserve = true;
 
-/*        if(joueur2ConserveTourPrecedent || !joueur2Conserve){
+        if(joueur2ConserveTourPrecedent || !joueur2Conserve){
             joueur2ConserveTourPrecedent = false;
             conserverErreur2.setText("Vous ne pouvez pas conserver deux tour de suite");
 
@@ -287,18 +358,45 @@ public class GameGraphicalController{
             joueur2ConserveTourPrecedent = true;
             conserverErreur2.setText("");
 
-        }*/
+        }
 
         if(partieTermine())
         {
             AfficherVainqueurs(GetVainqueurs());
+        }*/
+
+        if(duel == false && !(joueur2DernierTourConserver == tourInteger - 1))
+        {
+            joueur2DernierTourConserver = tourInteger;
         }
+        else if(duel == true)
+        {
+            joueur2ConserveDuel = true;
+        }
+
+
+        GestionFinTour();
+        GestionFinPartie();
     }
 
 
     @FXML
     private void handleButtonClickDemanderJoueur3(ActionEvent event) {
+        if(!(joueur3DernierTourConserver == tourInteger) && (!joueur3DemanderCeTour) && (!joueur3Depasser) && (!joueur3ConserveDuel ))
+        {
+            joueur3DemanderCeTour = true;
+            DonnerCarteJoueur3(partie.PigerCarteJoueur3());
 
+            if(partie.getJoueur3().getPoints() > 21)
+            {
+                joueur3Depasser = true;
+            }
+        }
+
+        GestionFinTour();
+        GestionFinPartie();
+
+        /*
         conserverErreur3.setText("");
 
         if(!joueur3EnAttente && !joueur3Depasser && !joueur3Conserve && !partieTerminer)
@@ -336,12 +434,12 @@ public class GameGraphicalController{
         {
             partieTerminer = true;
             AfficherVainqueurs(GetVainqueurs());
-        }
+        }*/
     }
 
     @FXML
     private void handleButtonClickConserverJoueur3(ActionEvent event) {
-
+/*
         joueur3Conserve = true;
 
 /*        if(joueur3ConserveTourPrecedent || !joueur3Conserve){
@@ -353,16 +451,41 @@ public class GameGraphicalController{
             conserverErreur3.setText("");
 
         }*/
-
+/*
         if(partieTermine())
         {
             AfficherVainqueurs(GetVainqueurs());
+        }*/
+
+        if(duel == false &&!(joueur3DernierTourConserver == tourInteger - 1))
+        {
+            joueur3DernierTourConserver = tourInteger;
         }
+        else if(duel == true)
+        {
+            joueur3ConserveDuel = true;
+        }
+
+        GestionFinTour();
+        GestionFinPartie();
     }
 
     @FXML
     private void handleButtonClickDemanderJoueur4(ActionEvent event) {
+        if(!(joueur4DernierTourConserver == tourInteger) && (!joueur4DemanderCeTour) && (!joueur4Depasser) && (!joueur4ConserveDuel ))
+        {
+            joueur4DemanderCeTour = true;
+            DonnerCarteJoueur4(partie.PigerCarteJoueur4());
 
+            if(partie.getJoueur4().getPoints() > 21)
+            {
+                joueur4Depasser = true;
+            }
+        }
+
+        GestionFinTour();
+        GestionFinPartie();
+/*
         conserverErreur4.setText("");
 
         if(!joueur4EnAttente && !joueur4Depasser && !joueur4Conserve && !partieTerminer)
@@ -398,12 +521,12 @@ public class GameGraphicalController{
         {
             partieTerminer = true;
             AfficherVainqueurs(GetVainqueurs());
-        }
+        }*/
     }
 
     @FXML
     private void handleButtonClickConserverJoueur4(ActionEvent event) {
-
+/*
         joueur4Conserve = true;
 
 /*        if(joueur4ConserveTourPrecedent || !joueur4Conserve){
@@ -415,12 +538,58 @@ public class GameGraphicalController{
             conserverErreur4.setText("");
 
         }*/
-
+/*
         if(partieTermine())
+        {
+            AfficherVainqueurs(GetVainqueurs());
+        }*/
+        if(duel == false && !(joueur4DernierTourConserver == tourInteger - 1))
+        {
+            joueur4DernierTourConserver = tourInteger;
+        }
+        else if(duel == true)
+        {
+            joueur4ConserveDuel = true;
+        }
+
+        GestionFinTour();
+        GestionFinPartie();
+    }
+
+    public void GestionFinPartie()
+    {
+        if(PartieTermine())
         {
             AfficherVainqueurs(GetVainqueurs());
         }
     }
+
+    private void GestionFinTour()
+    {
+        if(IsTourTermine())
+        {
+            joueur1DemanderCeTour = false;
+            joueur2DemanderCeTour = false;
+            joueur3DemanderCeTour = false;
+            joueur4DemanderCeTour = false;
+            tourInteger++;
+            tour.setText(Integer.toString(tourInteger));
+        }
+    }
+
+
+    private boolean IsTourTermine()
+    {
+        return
+                (joueur1DemanderCeTour || joueur1DernierTourConserver == tourInteger)
+                &&
+                (joueur2DemanderCeTour || joueur2DernierTourConserver == tourInteger)
+                &&
+                (joueur3DemanderCeTour || joueur3DernierTourConserver == tourInteger)
+                &&
+                (joueur4DemanderCeTour || joueur4DernierTourConserver == tourInteger);
+    }
+
 
     private void GestionnairePartie()
     {
@@ -429,11 +598,11 @@ public class GameGraphicalController{
         JoueurProduit joueur = factory.CreerJoueur(4);
     }
 
-
     private void InitializerPartie()
     {
         partie = new Partie();
-        tour.setText("Tour " + Integer.toString(compteurTour));
+        tourInteger = 1;
+        tour.setText(Integer.toString(tourInteger));
 
          //Distribution des cartes
         DonnerCarteJoueur1(partie.PigerCarteJoueur1());
@@ -444,7 +613,6 @@ public class GameGraphicalController{
         DonnerCarteJoueur3(partie.PigerCarteJoueur3());
         DonnerCarteJoueur4(partie.PigerCarteJoueur4());
         DonnerCarteJoueur4(partie.PigerCarteJoueur4());
-
     }
 
     private void DonnerCarteJoueur1(Carte carte)
@@ -612,28 +780,16 @@ public class GameGraphicalController{
         gagnant.setText(vainqueurs);
     }
 
-    private boolean tourTermine()
-    {
-            return
-                (joueur1EnAttente || joueur1Conserve || joueur1Depasser)
-                &&
-                (joueur2EnAttente || joueur2Conserve || joueur2Depasser )
-                &&
-                (joueur3EnAttente || joueur3Conserve || joueur3Depasser)
-                &&
-                (joueur4EnAttente || joueur4Conserve || joueur4Depasser);
-    }
-
-    private boolean partieTermine()
+    private boolean PartieTermine()
     {
         return
-                (joueur1Conserve || joueur1Depasser)
+                ( joueur1Depasser || joueur1ConserveDuel)
                 &&
-                (joueur2Conserve || joueur2Depasser)
+                ( joueur2Depasser || joueur2ConserveDuel)
                 &&
-                (joueur3Conserve || joueur3Depasser)
+                ( joueur3Depasser || joueur3ConserveDuel)
                 &&
-                (joueur4Conserve || joueur4Depasser);
+                ( joueur4Depasser || joueur4ConserveDuel);
     }
 
     @FXML
