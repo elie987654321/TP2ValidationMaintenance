@@ -215,7 +215,7 @@ public class GameGraphicalController{
 
         joueur1Conserve = true;
 
-        if(joueur1ConserveTourPrecedent || !joueur1Conserve){
+/*        if(joueur1ConserveTourPrecedent || !joueur1Conserve){
             joueur1ConserveTourPrecedent = false;
             conserverErreur1.setText("Vous ne pouvez pas conserver deux tour de suite");
 
@@ -223,7 +223,7 @@ public class GameGraphicalController{
             joueur1ConserveTourPrecedent = true;
             conserverErreur1.setText("");
 
-        }
+        }*/
 
         if(partieTermine())
         {
@@ -279,7 +279,7 @@ public class GameGraphicalController{
 
         joueur2Conserve = true;
 
-        if(joueur2ConserveTourPrecedent || !joueur2Conserve){
+/*        if(joueur2ConserveTourPrecedent || !joueur2Conserve){
             joueur2ConserveTourPrecedent = false;
             conserverErreur2.setText("Vous ne pouvez pas conserver deux tour de suite");
 
@@ -287,7 +287,7 @@ public class GameGraphicalController{
             joueur2ConserveTourPrecedent = true;
             conserverErreur2.setText("");
 
-        }
+        }*/
 
         if(partieTermine())
         {
@@ -344,7 +344,7 @@ public class GameGraphicalController{
 
         joueur3Conserve = true;
 
-        if(joueur3ConserveTourPrecedent || !joueur3Conserve){
+/*        if(joueur3ConserveTourPrecedent || !joueur3Conserve){
             joueur3ConserveTourPrecedent = false;
             conserverErreur3.setText("Vous ne pouvez pas conserver deux tour de suite");
 
@@ -352,7 +352,7 @@ public class GameGraphicalController{
             joueur3ConserveTourPrecedent = true;
             conserverErreur3.setText("");
 
-        }
+        }*/
 
         if(partieTermine())
         {
@@ -406,7 +406,7 @@ public class GameGraphicalController{
 
         joueur4Conserve = true;
 
-        if(joueur4ConserveTourPrecedent || !joueur4Conserve){
+/*        if(joueur4ConserveTourPrecedent || !joueur4Conserve){
             joueur4ConserveTourPrecedent = false;
             conserverErreur4.setText("Vous ne pouvez pas conserver deux tour de suite");
 
@@ -414,7 +414,7 @@ public class GameGraphicalController{
             joueur4ConserveTourPrecedent = true;
             conserverErreur4.setText("");
 
-        }
+        }*/
 
         if(partieTermine())
         {
