@@ -60,7 +60,7 @@ public class PartieTest {
     public void pigerCarteJoueur_unJoueur_retireUneCarteDuPaquet() {
         // given
         // Joueur1 de la partie
-        
+
         // when
         Carte carteRetiree = partieTest.PigerCarteJoueur1();
 
