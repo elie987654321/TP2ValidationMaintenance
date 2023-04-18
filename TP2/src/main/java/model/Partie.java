@@ -68,11 +68,6 @@ public class Partie {
     }
 
     // Methodes
-    // J pour joueur, B pour banquier
-    public char DeciderVainqueur(Joueur1 joueur) {
-            return 'N';//TODO develloper
-    }
-
     public Carte PigerCarteJoueur1() {
        return this.joueur1.piger(paquet.piger());
     }

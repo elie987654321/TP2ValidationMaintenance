@@ -24,7 +24,7 @@ class JoueurTest {
     }
 
     @Test
-    public void piger_uneCarte_retourneUneMainDu21RempliDUneCarte() {
+    public void piger_uneCarte_ajouteLaCarteDansLaMainDu21DuJoueur() {
         // Given
         Carte carte = new Carte(EnumsCartes.TypesCartes.coeur, EnumsCartes.RangCartes.AS, 11);
 
@@ -60,7 +60,7 @@ class JoueurTest {
     }
 
     @Test
-    public void toString_uneListeDeCartes_RetourneUnString() {
+    public void toString_uneListeDeCartesDuJoueur_RetourneUnString() {
         // Given
         ArrayList<Carte> mainDu21 = new ArrayList<>();
         mainDu21.add(new Carte(EnumsCartes.TypesCartes.pique, EnumsCartes.RangCartes.ROIS, 10));

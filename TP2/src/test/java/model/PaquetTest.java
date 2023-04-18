@@ -56,7 +56,7 @@ class PaquetTest {
     }
 
     @Test
-    void piger_unPaquetVide_retourneRien() {
+    void piger_unPaquetVide_retourneNull() {
         // GIVEN
 
         // WHEN
