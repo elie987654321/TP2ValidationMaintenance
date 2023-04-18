@@ -59,7 +59,7 @@ public class Carte {
     {
         Carte autreCarte = (Carte) o;
 
-        return (this.rang == autreCarte.getRang()) && (this.valeur == autreCarte.getValeur());
+        return (this.rang == autreCarte.getRang()) && (this.valeur == autreCarte.getValeur()) && (this.type == autreCarte.getType());
     }
 
     // toString

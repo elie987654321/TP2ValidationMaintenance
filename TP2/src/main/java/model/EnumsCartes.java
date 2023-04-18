@@ -13,7 +13,7 @@ public class EnumsCartes {
         DIX,
         VALET,
         REINE,
-        ROIS,
+        ROI,
         AS
     }
 

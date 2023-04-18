@@ -27,7 +27,7 @@ public class Paquet {
             if (rang == EnumsCartes.RangCartes.AS){
                 point = 11;
             }
-            else if (rang == EnumsCartes.RangCartes.VALET || rang == EnumsCartes.RangCartes.REINE ||rang == EnumsCartes.RangCartes.ROIS){
+            else if (rang == EnumsCartes.RangCartes.VALET || rang == EnumsCartes.RangCartes.REINE ||rang == EnumsCartes.RangCartes.ROI){
                 point = 10;
             }
             else {

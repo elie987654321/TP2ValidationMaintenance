@@ -73,7 +73,6 @@ public class Partie {
             return 'N';//TODO develloper
     }
 
-
     public Carte PigerCarteJoueur1() {
        return this.joueur1.piger(paquet.piger());
     }
