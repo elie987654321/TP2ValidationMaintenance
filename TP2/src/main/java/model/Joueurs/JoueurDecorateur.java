@@ -52,6 +52,6 @@ public class JoueurDecorateur implements JoueurProduit
 
     public String GetTexteVictoire()
     {
-        return joueurProduit.getNom() + "!!! YAY";
+        return joueurProduit.getNom() + "!!!!!!!!!!!";
     }
 }
