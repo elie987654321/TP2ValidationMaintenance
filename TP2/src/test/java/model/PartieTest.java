@@ -33,8 +33,9 @@ public class PartieTest {
     }
 
     @Test
-    public void pigerCarteJoueur_retourneUneCarteNonNull() {
+    public void pigerCarteJoueur_unJoueur_retourneUneCarteNonNull() {
         // given
+        // Joueur1 de la partie
 
         // when
         Carte carteNonNull = partieTest.PigerCarteJoueur1();
@@ -44,8 +45,9 @@ public class PartieTest {
     }
 
     @Test
-    public void pigerCarteJoueur_retourneUneCarteAleatoire() {
+    public void pigerCarteJoueur_unJoueur_retourneUneCarteAleatoire() {
         // given
+        // Joueur1 de la partie
 
         // when
         Carte carteAleatoire = partieTest.PigerCarteJoueur1();
@@ -55,9 +57,10 @@ public class PartieTest {
     }
 
     @Test
-    public void pigerCarteJoueur_retireUneCarteDuPaquet() {
+    public void pigerCarteJoueur_unJoueur_retireUneCarteDuPaquet() {
         // given
-
+        // Joueur1 de la partie
+        
         // when
         Carte carteRetiree = partieTest.PigerCarteJoueur1();
 
