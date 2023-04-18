@@ -69,7 +69,7 @@ public class Partie {
 
     // Methodes
     public Carte PigerCarteJoueur1() {
-       return this.joueur1.piger(paquet.piger());
+        return this.joueur1.piger(paquet.piger());
     }
 
 

@@ -42,7 +42,7 @@ public class Joueur1 implements JoueurProduit{
     public String getMainDu21Bien() {
         String test = "";
         for (Carte carte:
-             this.mainDu21) {
+                this.mainDu21) {
             test += "\n"+carte;
         }
         return test;

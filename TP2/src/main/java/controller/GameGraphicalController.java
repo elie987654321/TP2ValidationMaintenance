@@ -177,19 +177,11 @@ public class GameGraphicalController{
 
     private boolean joueur4DemanderCeTour;
 
-    private boolean joueur1Gagner = false;
-
-    private boolean joueur2Gagner = false;
-
-    private boolean joueur3Gagner = false;
-
-    private boolean joueur4Gagner = false;
-
 
     @FXML
     private void handleButtonClickDemanderJoueur1(ActionEvent event) {
 
-        if(!(joueur1DernierTourConserver == tourInteger) && ((!joueur1DemanderCeTour) || (joueur2ConserveDuel  || joueur3ConserveDuel || joueur4ConserveDuel)) && (!joueur1Depasser) && (!joueur1ConserveDuel ) && ! partieTerminer)
+        if(!(joueur1DernierTourConserver == tourInteger) && (!joueur1DemanderCeTour) && (!joueur1Depasser) && (!joueur1ConserveDuel ) && ! partieTerminer)
         {
             joueur1DemanderCeTour = true;
             DonnerCarteJoueur1(partie.PigerCarteJoueur1());
@@ -203,7 +195,7 @@ public class GameGraphicalController{
             }
         }
 
-        if(!joueur1Depasser && !partieTerminer ){
+        if(!joueur1Depasser && !partieTerminer && joueur1DemanderCeTour){
             conserverJoueur1.setDisable(false);
         }
 
@@ -234,8 +226,7 @@ public class GameGraphicalController{
 
     @FXML
     private void handleButtonClickDemanderJoueur2(ActionEvent event) {
-        if(!(joueur2DernierTourConserver == tourInteger) && ((!joueur2DemanderCeTour) || (joueur1ConserveDuel  || joueur3ConserveDuel || joueur4ConserveDuel) )
-                && (!joueur2Depasser) && (!joueur2ConserveDuel ) && ! partieTerminer)
+        if(!(joueur2DernierTourConserver == tourInteger) && (!joueur2DemanderCeTour) && (!joueur2Depasser) && (!joueur2ConserveDuel ) && ! partieTerminer)
         {
             joueur2DemanderCeTour = true;
             DonnerCarteJoueur2(partie.PigerCarteJoueur2());
@@ -249,7 +240,7 @@ public class GameGraphicalController{
             }
         }
 
-        if(!joueur2Depasser && !partieTerminer ){
+        if(!joueur2Depasser && !partieTerminer && joueur2DemanderCeTour){
             conserverJoueur2.setDisable(false);
         }
 
@@ -279,7 +270,7 @@ public class GameGraphicalController{
 
     @FXML
     private void handleButtonClickDemanderJoueur3(ActionEvent event) {
-        if(!(joueur3DernierTourConserver == tourInteger) && ((!joueur3DemanderCeTour) || (joueur1ConserveDuel  || joueur2ConserveDuel || joueur4ConserveDuel)) && (!joueur3Depasser) && (!joueur3ConserveDuel ) && ! partieTerminer)
+        if(!(joueur3DernierTourConserver == tourInteger) && (!joueur3DemanderCeTour) && (!joueur3Depasser) && (!joueur3ConserveDuel ) && ! partieTerminer)
         {
             joueur3DemanderCeTour = true;
             DonnerCarteJoueur3(partie.PigerCarteJoueur3());
@@ -293,13 +284,15 @@ public class GameGraphicalController{
             }
         }
 
-        if(!joueur3Depasser && !partieTerminer ){
+        if(!joueur3Depasser && !partieTerminer && joueur3DemanderCeTour){
             conserverJoueur3.setDisable(false);
         }
 
         GestionDuel();
         GestionFinTour();
         GestionFinPartie();
+
+
     }
 
     @FXML
@@ -323,7 +316,7 @@ public class GameGraphicalController{
 
     @FXML
     private void handleButtonClickDemanderJoueur4(ActionEvent event) {
-        if(!(joueur4DernierTourConserver == tourInteger) && ((!joueur4DemanderCeTour) || (joueur1ConserveDuel  || joueur2ConserveDuel || joueur3ConserveDuel)) && (!joueur4Depasser) && (!joueur4ConserveDuel ) && ! partieTerminer)
+        if(!(joueur4DernierTourConserver == tourInteger) && (!joueur4DemanderCeTour) && (!joueur4Depasser) && (!joueur4ConserveDuel ) && ! partieTerminer)
         {
             joueur4DemanderCeTour = true;
             DonnerCarteJoueur4(partie.PigerCarteJoueur4());
@@ -337,7 +330,7 @@ public class GameGraphicalController{
             }
         }
 
-        if(!joueur4Depasser && !partieTerminer){
+        if(!joueur4Depasser && !partieTerminer && joueur4DemanderCeTour){
             conserverJoueur4.setDisable(false);
         }
 
@@ -363,6 +356,14 @@ public class GameGraphicalController{
 
         GestionFinTour();
         GestionFinPartie();
+    }
+
+    public void SetterLesNoms()
+    {
+        partie.getJoueur1().setNom(joueur1.getText());
+        partie.getJoueur2().setNom(joueur2.getText());
+        partie.getJoueur3().setNom(joueur3.getText());
+        partie.getJoueur4().setNom(joueur4.getText());
     }
 
     public void GestionFinPartie()
@@ -394,6 +395,7 @@ public class GameGraphicalController{
             joueur4DemanderCeTour = false;
             tourInteger++;
             tour.setText("Tour " + Integer.toString(tourInteger));
+
         }
     }
 
@@ -575,21 +577,30 @@ public class GameGraphicalController{
 
     private ArrayList<String> GetVainqueurs()
     {
+        int pointJoueur1Decision = joueur1Depasser ? 0 : partie.getJoueur1().getPoints();
+        int pointJoueur2Decision = joueur2Depasser ? 0 : partie.getJoueur2().getPoints();
+        int pointJoueur3Decision = joueur3Depasser ? 0 : partie.getJoueur3().getPoints();
+        int pointJoueur4Decision = joueur4Depasser ? 0 : partie.getJoueur4().getPoints();
+
+        int maximum = Math.max(pointJoueur1Decision, pointJoueur2Decision);
+        maximum = Math.max(maximum, pointJoueur3Decision);
+        maximum = Math.max(maximum, pointJoueur4Decision);
+
         ArrayList<String> lesVainqueurs = new ArrayList<String>();
 
-        if(joueur1Gagner)
+        if( pointJoueur1Decision == maximum)
         {
             lesVainqueurs.add(new JoueurDecorateur(partie.getJoueur1()).GetTexteVictoire());
         }
-        if(joueur2Gagner)
+        if(pointJoueur2Decision == maximum)
         {
             lesVainqueurs.add(new JoueurDecorateur(partie.getJoueur2()).GetTexteVictoire());
         }
-        if(joueur3Gagner)
+        if(pointJoueur3Decision == maximum)
         {
             lesVainqueurs.add(new JoueurDecorateur(partie.getJoueur3()).GetTexteVictoire());
         }
-        if(joueur4Gagner)
+        if(pointJoueur4Decision == maximum)
         {
             lesVainqueurs.add(new JoueurDecorateur(partie.getJoueur4()).GetTexteVictoire());
         }
@@ -650,101 +661,46 @@ public class GameGraphicalController{
         }
     }
 
-    public void SetterLesNoms()
-    {
-        partie.getJoueur1().setNom(joueur1.getText());
-        partie.getJoueur2().setNom(joueur2.getText());
-        partie.getJoueur3().setNom(joueur3.getText());
-        partie.getJoueur4().setNom(joueur4.getText());
-    }
-
     private boolean PartieTermine()
     {
-        boolean joueur1SeulRestant =(!duel ) &&  ( joueur2Depasser ) && ( joueur3Depasser ) && ( joueur4Depasser);
-        boolean joueur121 = partie.getJoueur1().getPoints() == 21;
-        boolean joueur1GagnerDuel = joueur1EnDuel && joueur2EnDuel && joueur2ConserveDuel &&
-                (partie.getJoueur1().getPoints() >= partie.getJoueur2().getPoints())
-                ||
-                (joueur1EnDuel && joueur3EnDuel && joueur3ConserveDuel &&
-                        (partie.getJoueur1().getPoints() >= partie.getJoueur3().getPoints()))
-                ||
-                (                joueur1EnDuel && joueur4EnDuel && joueur4ConserveDuel &&
-                        (partie.getJoueur1().getPoints() >= partie.getJoueur4().getPoints()))
-                ||
-                (joueur1EnDuel && joueur2EnDuel && joueur2Depasser)
-                ||
-                (joueur1EnDuel && joueur3EnDuel && joueur3Depasser)
-                ||
-                (joueur1EnDuel && joueur4EnDuel && joueur4Depasser)
-                ;
-         joueur1Gagner = joueur1SeulRestant || joueur121 || joueur1GagnerDuel;
-
-
-
-        boolean joueur2SeulRestant = (!duel ) &&  ( joueur1Depasser ) && ( joueur3Depasser ) && ( joueur4Depasser);
-        boolean joueur221 = partie.getJoueur2().getPoints() == 21;
-        boolean joueur2GagnerDuel = (joueur2EnDuel && joueur1EnDuel && joueur1ConserveDuel &&
-                (partie.getJoueur2().getPoints() >= partie.getJoueur1().getPoints()))
-                ||
-                (joueur2EnDuel && joueur3EnDuel && joueur3ConserveDuel &&
-                        (partie.getJoueur2().getPoints() >= partie.getJoueur3().getPoints()))
-                ||
-                (joueur2EnDuel && joueur4EnDuel && joueur4ConserveDuel &&
-                        (partie.getJoueur2().getPoints() >= partie.getJoueur4().getPoints()))
-                ||
-                (joueur2EnDuel && joueur1EnDuel && joueur1Depasser)
-                ||
-                (joueur2EnDuel && joueur3EnDuel && joueur3Depasser)
-                ||
-                (joueur2EnDuel && joueur4EnDuel && joueur4Depasser)
-                ;
+        boolean joueur1Gagner =
+                ( joueur2Depasser || joueur2ConserveDuel)
+                        &&
+                        ( joueur3Depasser || joueur3ConserveDuel)
+                        &&
+                        ( joueur4Depasser || joueur4ConserveDuel)
+                        ||
+                        partie.getJoueur1().getPoints() == 21
                 ;
 
-        joueur2Gagner = joueur2SeulRestant || joueur221 || joueur2GagnerDuel ;
-
-
-        boolean joueur3SeulRestant = (!duel ) && ( joueur1Depasser ) && ( joueur2Depasser ) && ( joueur4Depasser);
-        boolean joueur321 = partie.getJoueur3().getPoints() == 21;
-        boolean joueur3GagnerDuel = (joueur3EnDuel && joueur1EnDuel && joueur1ConserveDuel &&
-                (partie.getJoueur3().getPoints() >= partie.getJoueur1().getPoints()))
-                ||
-                (joueur3EnDuel && joueur2EnDuel && joueur2ConserveDuel &&
-                        (partie.getJoueur3().getPoints() >= partie.getJoueur2().getPoints()))
-                ||
-                (joueur3EnDuel && joueur4EnDuel && joueur4ConserveDuel &&
-                        (partie.getJoueur3().getPoints() >= partie.getJoueur4().getPoints()))
-                ||
-                (joueur3EnDuel && joueur1EnDuel && joueur1Depasser)
-                ||
-                (joueur3EnDuel && joueur2EnDuel && joueur2Depasser)
-                ||
-                (joueur3EnDuel && joueur4EnDuel && joueur4Depasser)
-                ;;
-
-        joueur3Gagner = joueur3SeulRestant || joueur321 || joueur3GagnerDuel;
-
-        boolean joueur4SeulRestant = (!duel ) && ( joueur1Depasser ) && ( joueur2Depasser ) && ( joueur3Depasser);
-        boolean joueur421 = partie.getJoueur4().getPoints() == 21;
-        boolean joueur4GagnerDuel = (joueur4EnDuel && joueur1EnDuel && joueur1ConserveDuel &&
-                (partie.getJoueur4().getPoints() >= partie.getJoueur1().getPoints())
-                )
-                ||(
-                ( joueur4EnDuel && joueur2EnDuel && joueur2ConserveDuel &&
-                        (partie.getJoueur4().getPoints() >= partie.getJoueur2().getPoints()))
-                )||
-                ((joueur4EnDuel && joueur3EnDuel && joueur3ConserveDuel &&
-                        (partie.getJoueur4().getPoints() >= partie.getJoueur3().getPoints())))
-                ||
-                (joueur4EnDuel && joueur1EnDuel && joueur1Depasser)
-                ||
-                (joueur4EnDuel && joueur2EnDuel && joueur2Depasser)
-                ||
-                (joueur4EnDuel && joueur3EnDuel && joueur3Depasser)
-                ;
+        boolean joueur2Gagner =
+                ( joueur1Depasser || joueur1ConserveDuel)
+                        &&
+                        ( joueur3Depasser || joueur3ConserveDuel)
+                        &&
+                        ( joueur4Depasser || joueur4ConserveDuel)
+                        ||
+                        partie.getJoueur2().getPoints() == 21
                 ;
 
-        joueur4Gagner = joueur4SeulRestant || joueur421 || joueur4GagnerDuel;
+        boolean joueur3Gagner =
+                ( joueur1Depasser || joueur1ConserveDuel)
+                        &&
+                        ( joueur2Depasser || joueur2ConserveDuel)
+                        &&
+                        ( joueur4Depasser || joueur4ConserveDuel)
+                        ||
+                        partie.getJoueur3().getPoints() == 21;
 
+        boolean joueur4Gagner =
+                ( joueur1Depasser || joueur1ConserveDuel)
+                        &&
+                        ( joueur2Depasser || joueur2ConserveDuel)
+                        &&
+                        ( joueur3Depasser || joueur3ConserveDuel)
+                        ||
+                        partie.getJoueur4().getPoints() == 21
+                ;
 
         return joueur1Gagner || joueur2Gagner || joueur3Gagner || joueur4Gagner;
     }
