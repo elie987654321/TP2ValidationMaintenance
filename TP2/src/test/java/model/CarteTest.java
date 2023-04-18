@@ -42,7 +42,7 @@ class CarteTest {
     {
         //GIVEN
         Carte carteTest1 = new Carte(TypesCartes.coeur, RangCartes.AS,  11);
-        Carte carteTest2 = new Carte(TypesCartes.carreau, RangCartes.ROI,  10);
+        Carte carteTest2 = new Carte(TypesCartes.carreau, RangCartes.ROIS,  10);
 
         //WHEN
         boolean carteEgal = carteTest1.equals(carteTest2);
@@ -56,7 +56,7 @@ class CarteTest {
     {
         //GIVEN
         Carte carteTest1 = new Carte(TypesCartes.coeur, RangCartes.AS,  11);
-        Carte carteTest2 = new Carte(TypesCartes.carreau, RangCartes.ROI,  10);
+        Carte carteTest2 = new Carte(TypesCartes.carreau, RangCartes.ROIS,  10);
 
         //WHEN
         boolean carteEgal = carteTest1.equals(carteTest2);

@@ -63,7 +63,7 @@ class JoueurTest {
     public void toString_uneListeDeCartes_RetourneUnString() {
         // Given
         ArrayList<Carte> mainDu21 = new ArrayList<>();
-        mainDu21.add(new Carte(EnumsCartes.TypesCartes.pique, EnumsCartes.RangCartes.ROI, 10));
+        mainDu21.add(new Carte(EnumsCartes.TypesCartes.pique, EnumsCartes.RangCartes.ROIS, 10));
         mainDu21.add(new Carte(EnumsCartes.TypesCartes.trefle, EnumsCartes.RangCartes.REINE, 10));
         joueurTest.setMainDu21(mainDu21);
 
@@ -71,6 +71,6 @@ class JoueurTest {
         String mainDu21Bien = joueurTest.getMainDu21Bien();
 
         // Then
-        Assertions.assertEquals("\nRang:ROI"+"Valeur:pique"+"\nRang:REINE"+"Valeur:trefle", mainDu21Bien);
+        Assertions.assertEquals("\nRang:ROIS"+"Valeur:pique"+"\nRang:REINE"+"Valeur:trefle", mainDu21Bien);
     }
 }
