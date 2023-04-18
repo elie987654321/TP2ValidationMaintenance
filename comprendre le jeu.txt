@@ -5,6 +5,12 @@ tour 2 - etc...
 -si un joueur conserve sur un tour il ne peut pas conserver au prochain tour
 -A 2 joueur on joue jusqua ce que quelqun gagne ou sil conserve le prochain doit essayer de le battre
 
+si deux joueurs son en duel, si la personne qui a le plus gros nombre conserve, l'autre peut demander jusqu'a ce qu'il depasse ou qu'il ait le meme nombre de points
+si les deux conservent au meme nombre de points, ils vont gagner tout les deux
+
+quand il reste 2 joueurs, ils peuvent demander autant qu'ils veulent jsuqua ce quil perd mais si quelqun conserve lautre perso
+
+
 Garder en memoire
 	dernier tour ou chaque joueur a conserver
 	dernier tour ou le joueur a demander

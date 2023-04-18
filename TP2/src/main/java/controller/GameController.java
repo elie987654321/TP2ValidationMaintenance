@@ -17,11 +17,9 @@ public class GameController extends Application{
         Scene scene = new Scene(fxmlLoader1.load());
         primaryStage.setScene(scene);
         primaryStage.show();
-
     }
 
     public static void main(String args[]) {
         launch(args);
-
     }
 }
