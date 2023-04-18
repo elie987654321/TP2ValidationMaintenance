@@ -22,7 +22,7 @@ class JoueurCreateurTest {
     }
 
     @Test
-    public void creerJoueur_unIntValant1_creerJoueur1() {
+    public void creerJoueur_unIntValant1_retourneJoueur1() {
         // given
         int numeroDuJoueur = 1;
 
@@ -34,7 +34,7 @@ class JoueurCreateurTest {
     }
 
     @Test
-    public void creerJoueur_unIntValant2_creerJoueur2() {
+    public void creerJoueur_unIntValant2_retourneJoueur2() {
         // given
         int numeroDuJoueur = 2;
 
@@ -46,7 +46,7 @@ class JoueurCreateurTest {
     }
 
     @Test
-    public void creerJoueur_unIntValant3_creerJoueur3() {
+    public void creerJoueur_unIntValant3_retourneJoueur3() {
         // given
         int numeroDuJoueur = 3;
 
@@ -58,7 +58,7 @@ class JoueurCreateurTest {
     }
 
     @Test
-    public void creerJoueur_unIntValant4_creerJoueur4() {
+    public void creerJoueur_unIntValant4_retourneJoueur4() {
         // given
         int numeroDuJoueur = 4;
 
@@ -70,7 +70,7 @@ class JoueurCreateurTest {
     }
 
     @Test
-    public void creerJoueur_unIntValant5_creerJoueurNull() {
+    public void creerJoueur_unIntValant5_retourneNull() {
         // given
         int numeroDuJoueur = 5;
 

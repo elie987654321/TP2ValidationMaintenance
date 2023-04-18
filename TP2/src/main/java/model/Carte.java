@@ -48,7 +48,7 @@ public class Carte {
     {
         //plus facile a debugger avec variable si probleme de path
         String path = Paths.get("").toAbsolutePath().toString() + "/src/main/resources/images/paquet/" + this.rang + "_" + this.type + ".png";
-        System.out.println(path);
+
         return path;
 
     }

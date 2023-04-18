@@ -32,10 +32,6 @@ public class PartieTest {
         assertEquals(expectedNbrDeCartes, actualNbrDeCartes, "Le nombre de cartes dans le paquet doit être de 52");
     }
 
-/*    @Test
-    void deciderVainqueur() {
-    }*/
-
     @Test
     public void pigerCarteJoueur_retourneUneCarteNonNull() {
         // given
