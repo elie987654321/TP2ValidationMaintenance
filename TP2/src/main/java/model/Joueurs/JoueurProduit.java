@@ -16,6 +16,10 @@ public interface JoueurProduit {
 
     Carte piger(Carte carte);
 
+    public String getNom();
+
+    public void setNom(String nom);
+
     @Override
     String toString();
 

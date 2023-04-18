@@ -8,6 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import model.Carte;
 import model.Joueurs.JoueurCreateur;
+import model.Joueurs.JoueurDecorateur;
 import model.Joueurs.JoueurProduit;
 import model.Partie;
 
@@ -395,12 +396,12 @@ public class GameGraphicalController{
     {
         return
                 (joueur1DemanderCeTour || joueur1DernierTourConserver == tourInteger)
-                &&
-                (joueur2DemanderCeTour || joueur2DernierTourConserver == tourInteger)
-                &&
-                (joueur3DemanderCeTour || joueur3DernierTourConserver == tourInteger)
-                &&
-                (joueur4DemanderCeTour || joueur4DernierTourConserver == tourInteger);
+                        &&
+                        (joueur2DemanderCeTour || joueur2DernierTourConserver == tourInteger)
+                        &&
+                        (joueur3DemanderCeTour || joueur3DernierTourConserver == tourInteger)
+                        &&
+                        (joueur4DemanderCeTour || joueur4DernierTourConserver == tourInteger);
     }
 
 
@@ -417,7 +418,7 @@ public class GameGraphicalController{
         tourInteger = 1;
         tour.setText("Tour " + Integer.toString(tourInteger));
 
-         //Distribution des cartes
+        //Distribution des cartes
         DonnerCarteJoueur1(partie.PigerCarteJoueur1());
         DonnerCarteJoueur2(partie.PigerCarteJoueur2());
         DonnerCarteJoueur3(partie.PigerCarteJoueur3());
@@ -581,19 +582,19 @@ public class GameGraphicalController{
 
         if( pointJoueur1Decision == maximum)
         {
-            lesVainqueurs.add(joueur1.getText());
+            lesVainqueurs.add(new JoueurDecorateur(partie.getJoueur1()).GetTexteVictoire());
         }
         if(pointJoueur2Decision == maximum)
         {
-            lesVainqueurs.add(joueur2.getText());
+            lesVainqueurs.add(new JoueurDecorateur(partie.getJoueur2()).GetTexteVictoire());
         }
         if(pointJoueur3Decision == maximum)
         {
-            lesVainqueurs.add((joueur3.getText()));
+            lesVainqueurs.add(new JoueurDecorateur(partie.getJoueur3()).GetTexteVictoire());
         }
         if(pointJoueur4Decision == maximum)
         {
-            lesVainqueurs.add(joueur4.getText());
+            lesVainqueurs.add(new JoueurDecorateur(partie.getJoueur4()).GetTexteVictoire());
         }
 
         return lesVainqueurs;
@@ -652,45 +653,53 @@ public class GameGraphicalController{
         }
     }
 
+    public void SetterLesNoms()
+    {
+        partie.getJoueur1().setNom(joueur1.getText());
+        partie.getJoueur2().setNom(joueur2.getText());
+        partie.getJoueur3().setNom(joueur3.getText());
+        partie.getJoueur4().setNom(joueur4.getText());
+    }
+
     private boolean PartieTermine()
     {
         boolean joueur1Gagner =
-            ( joueur2Depasser || joueur2ConserveDuel)
-            &&
-            ( joueur3Depasser || joueur3ConserveDuel)
-            &&
-            ( joueur4Depasser || joueur4ConserveDuel)
-            ||
-            partie.getJoueur1().getPoints() == 21
+                ( joueur2Depasser || joueur2ConserveDuel)
+                        &&
+                        ( joueur3Depasser || joueur3ConserveDuel)
+                        &&
+                        ( joueur4Depasser || joueur4ConserveDuel)
+                        ||
+                        partie.getJoueur1().getPoints() == 21
                 ;
 
         boolean joueur2Gagner =
                 ( joueur1Depasser || joueur1ConserveDuel)
-                &&
-                ( joueur3Depasser || joueur3ConserveDuel)
-                &&
-                ( joueur4Depasser || joueur4ConserveDuel)
-            ||
-            partie.getJoueur2().getPoints() == 21
+                        &&
+                        ( joueur3Depasser || joueur3ConserveDuel)
+                        &&
+                        ( joueur4Depasser || joueur4ConserveDuel)
+                        ||
+                        partie.getJoueur2().getPoints() == 21
                 ;
 
         boolean joueur3Gagner =
                 ( joueur1Depasser || joueur1ConserveDuel)
-                &&
-                ( joueur2Depasser || joueur2ConserveDuel)
-                &&
-                ( joueur4Depasser || joueur4ConserveDuel)
-                ||
-                partie.getJoueur3().getPoints() == 21;
+                        &&
+                        ( joueur2Depasser || joueur2ConserveDuel)
+                        &&
+                        ( joueur4Depasser || joueur4ConserveDuel)
+                        ||
+                        partie.getJoueur3().getPoints() == 21;
 
         boolean joueur4Gagner =
                 ( joueur1Depasser || joueur1ConserveDuel)
-                &&
-                ( joueur2Depasser || joueur2ConserveDuel)
-                &&
-                ( joueur3Depasser || joueur3ConserveDuel)
-                ||
-                partie.getJoueur4().getPoints() == 21
+                        &&
+                        ( joueur2Depasser || joueur2ConserveDuel)
+                        &&
+                        ( joueur3Depasser || joueur3ConserveDuel)
+                        ||
+                        partie.getJoueur4().getPoints() == 21
                 ;
 
         return joueur1Gagner || joueur2Gagner || joueur3Gagner || joueur4Gagner;

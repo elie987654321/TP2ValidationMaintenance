@@ -10,6 +10,19 @@ public class Joueur3 implements JoueurProduit {
     private ArrayList<Carte> mainDu21;
     private int points;
 
+    private String nom;
+
+    public String getNom()
+    {
+        return this.nom;
+    }
+
+    public void setNom(String nom)
+    {
+        this.nom = nom;
+    }
+
+
     // Constructeur par défaut
     public Joueur3() {
         this.mainDu21 = new ArrayList<Carte>();

@@ -22,6 +22,18 @@ public class Joueur2 implements JoueurProduit{
         this.points = points;
     }
 
+    private String nom;
+
+    public String getNom()
+    {
+        return this.nom;
+    }
+
+    public void setNom(String nom)
+    {
+        this.nom = nom;
+    }
+
     // Accesseurs et mutateurs
     public ArrayList<Carte> getMainDu21() {
         return mainDu21;

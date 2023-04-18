@@ -57,6 +57,7 @@ public class ChoixDesNomsController {
             }
             
             if(i==4){
+                gameGraphicalController.SetterLesNoms();
                 gameGraphicalController.GestionFinPartie();
                 primaryStage.setScene(scene);
                 primaryStage.show();
