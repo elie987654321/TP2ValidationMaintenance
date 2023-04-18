@@ -56,6 +56,14 @@ public class GameGraphicalController{
 
     private boolean duel;
 
+    private boolean joueur1EnDuel;
+
+    private boolean joueur2EnDuel;
+
+    private boolean joueur3EnDuel;
+
+    private boolean joueur4EnDuel;
+
     private boolean joueur1ConserveDuel;
     private boolean joueur2ConserveDuel;
     private boolean joueur3ConserveDuel;
@@ -213,6 +221,7 @@ public class GameGraphicalController{
             }
         }
 
+        GestionDuel();
         GestionFinTour();
         GestionFinPartie();
 /*
@@ -303,6 +312,7 @@ public class GameGraphicalController{
             }
         }
 
+        GestionDuel();
         GestionFinTour();
         GestionFinPartie();
                 /*
@@ -374,7 +384,7 @@ public class GameGraphicalController{
             joueur2ConserveDuel = true;
         }
 
-
+        GestionDuel();
         GestionFinTour();
         GestionFinPartie();
     }
@@ -393,6 +403,7 @@ public class GameGraphicalController{
             }
         }
 
+        GestionDuel();
         GestionFinTour();
         GestionFinPartie();
 
@@ -483,6 +494,7 @@ public class GameGraphicalController{
             }
         }
 
+        GestionDuel();
         GestionFinTour();
         GestionFinPartie();
 /*
@@ -573,7 +585,7 @@ public class GameGraphicalController{
             joueur3DemanderCeTour = false;
             joueur4DemanderCeTour = false;
             tourInteger++;
-            tour.setText(Integer.toString(tourInteger));
+            tour.setText("Tour " + Integer.toString(tourInteger));
         }
     }
 
@@ -602,7 +614,7 @@ public class GameGraphicalController{
     {
         partie = new Partie();
         tourInteger = 1;
-        tour.setText(Integer.toString(tourInteger));
+        tour.setText("Tour " + Integer.toString(tourInteger));
 
          //Distribution des cartes
         DonnerCarteJoueur1(partie.PigerCarteJoueur1());
@@ -780,16 +792,77 @@ public class GameGraphicalController{
         gagnant.setText(vainqueurs);
     }
 
+    private void GestionDuel()
+    {
+        if(!joueur1Depasser && !joueur2Depasser && joueur3Depasser && joueur4Depasser)
+        {
+            duel = true;
+            joueur1EnDuel = true;
+            joueur2EnDuel = true;
+        }
+        else if(!joueur1Depasser && joueur2Depasser && !joueur3Depasser && joueur4Depasser)
+        {
+            duel = true;
+            joueur1EnDuel = true;
+            joueur3EnDuel = true;
+        }
+        else if(!joueur1Depasser && joueur2Depasser && joueur3Depasser && !joueur4Depasser)
+        {
+            duel = true;
+            joueur1EnDuel = true;
+            joueur4EnDuel = true;
+        }
+        else if (joueur1Depasser && !joueur2Depasser && !joueur3Depasser && joueur4Depasser)
+        {
+            duel = true;
+            joueur2EnDuel = true;
+            joueur3EnDuel = true;
+        }
+        else if(joueur1Depasser && !joueur2Depasser && joueur3Depasser && !joueur4Depasser)
+        {
+            duel = true;
+            joueur2EnDuel = true;
+            joueur4EnDuel = true;
+        }
+        else if(joueur1Depasser && joueur2Depasser && !joueur3Depasser && !joueur4Depasser)
+        {
+            duel = true;
+            joueur3EnDuel = true;
+            joueur4EnDuel = true;
+        }
+    }
+
     private boolean PartieTermine()
     {
-        return
+        boolean joueur1Gagner =
+            ( joueur2Depasser || joueur2ConserveDuel)
+            &&
+            ( joueur3Depasser || joueur3ConserveDuel)
+            &&
+            ( joueur4Depasser || joueur4ConserveDuel);
+
+        boolean joueur2Gagner =
                 ( joueur1Depasser || joueur1ConserveDuel)
-                &&
-                ( joueur2Depasser || joueur2ConserveDuel)
                 &&
                 ( joueur3Depasser || joueur3ConserveDuel)
                 &&
                 ( joueur4Depasser || joueur4ConserveDuel);
+
+        boolean joueur3Gagner =
+                ( joueur1Depasser || joueur1ConserveDuel)
+                &&
+                ( joueur2Depasser || joueur2ConserveDuel)
+                &&
+                ( joueur4Depasser || joueur4ConserveDuel);
+
+        boolean joueur4Gagner =
+                ( joueur1Depasser || joueur1ConserveDuel)
+                &&
+                ( joueur2Depasser || joueur2ConserveDuel)
+                &&
+                ( joueur3Depasser || joueur3ConserveDuel);
+
+        return joueur1Gagner || joueur2Gagner || joueur3Gagner || joueur4Gagner;
     }
 
     @FXML
