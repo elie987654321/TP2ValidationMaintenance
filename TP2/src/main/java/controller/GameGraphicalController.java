@@ -52,6 +52,9 @@ public class GameGraphicalController{
     @FXML
     private Text pointJoueur1;
 
+    @FXML
+    private Text joueur1Elimine;
+
     private int nbCarteJoueur1 = 0;
 
     @FXML
@@ -78,6 +81,8 @@ public class GameGraphicalController{
     @FXML
     private Text pointJoueur2;
     @FXML
+    private Text joueur2Elimine;
+    @FXML
     private Button conserverJoueur2;
     @FXML
     private Button demanderJoueur2;
@@ -102,6 +107,8 @@ public class GameGraphicalController{
     @FXML
     private Text pointJoueur3;
     @FXML
+    private Text joueur3Elimine;
+    @FXML
     private Button conserverJoueur3;
     @FXML
     private Button demanderJoueur3;
@@ -125,6 +132,8 @@ public class GameGraphicalController{
     private int nbCarteJoueur4 = 0;
     @FXML
     private Text pointJoueur4;
+    @FXML
+    private Text joueur4Elimine;
     @FXML
     private Button conserverJoueur4;
     @FXML
@@ -179,8 +188,16 @@ public class GameGraphicalController{
             if(partie.getJoueur1().getPoints() > 21)
             {
                 joueur1Depasser = true;
+                joueur1Elimine.setText("Éliminé");
+                demanderJoueur1.setDisable(true);
+                conserverJoueur1.setDisable(true);
             }
         }
+
+        if(!joueur1Depasser && !partieTerminer && joueur1DemanderCeTour){
+            conserverJoueur1.setDisable(false);
+        }
+
         GestionDuel();
         GestionFinTour();
         GestionFinPartie();
@@ -195,6 +212,10 @@ public class GameGraphicalController{
         else if(duel == true)
         {
             joueur1ConserveDuel = true;
+        }
+
+        if(!joueur1DemanderCeTour){
+            conserverJoueur1.setDisable(true);
         }
 
         GestionFinTour();
@@ -212,7 +233,14 @@ public class GameGraphicalController{
             if(partie.getJoueur2().getPoints() > 21)
             {
                 joueur2Depasser = true;
+                joueur2Elimine.setText("Éliminé");
+                demanderJoueur2.setDisable(true);
+                conserverJoueur2.setDisable(true);
             }
+        }
+
+        if(!joueur2Depasser && !partieTerminer && joueur2DemanderCeTour){
+            conserverJoueur2.setDisable(false);
         }
 
         GestionDuel();
@@ -230,7 +258,10 @@ public class GameGraphicalController{
             joueur2ConserveDuel = true;
         }
 
-        GestionDuel();
+        if(!joueur2DemanderCeTour){
+            conserverJoueur2.setDisable(true);
+        }
+
         GestionFinTour();
         GestionFinPartie();
     }
@@ -246,7 +277,14 @@ public class GameGraphicalController{
             if(partie.getJoueur3().getPoints() > 21)
             {
                 joueur3Depasser = true;
+                joueur3Elimine.setText("Éliminé");
+                demanderJoueur3.setDisable(true);
+                conserverJoueur3.setDisable(true);
             }
+        }
+
+        if(!joueur3Depasser && !partieTerminer && joueur3DemanderCeTour){
+            conserverJoueur3.setDisable(false);
         }
 
         GestionDuel();
@@ -267,6 +305,10 @@ public class GameGraphicalController{
             joueur3ConserveDuel = true;
         }
 
+        if(!joueur3DemanderCeTour){
+            conserverJoueur3.setDisable(true);
+        }
+
         GestionFinTour();
         GestionFinPartie();
     }
@@ -281,7 +323,14 @@ public class GameGraphicalController{
             if(partie.getJoueur4().getPoints() > 21)
             {
                 joueur4Depasser = true;
+                joueur4Elimine.setText("Éliminé");
+                demanderJoueur4.setDisable(true);
+                conserverJoueur4.setDisable(true);
             }
+        }
+
+        if(!joueur4Depasser && !partieTerminer && joueur4DemanderCeTour){
+            conserverJoueur4.setDisable(false);
         }
 
         GestionDuel();
@@ -300,6 +349,10 @@ public class GameGraphicalController{
             joueur4ConserveDuel = true;
         }
 
+        if(!joueur4DemanderCeTour){
+            conserverJoueur4.setDisable(true);
+        }
+
         GestionFinTour();
         GestionFinPartie();
     }
@@ -308,6 +361,16 @@ public class GameGraphicalController{
     {
         if(PartieTermine())
         {
+            conserverJoueur1.setDisable(true);
+            conserverJoueur2.setDisable(true);
+            conserverJoueur3.setDisable(true);
+            conserverJoueur4.setDisable(true);
+
+            demanderJoueur1.setDisable(true);
+            demanderJoueur2.setDisable(true);
+            demanderJoueur3.setDisable(true);
+            demanderJoueur4.setDisable(true);
+
             partieTerminer = true;
             AfficherVainqueurs(GetVainqueurs());
         }
@@ -323,6 +386,7 @@ public class GameGraphicalController{
             joueur4DemanderCeTour = false;
             tourInteger++;
             tour.setText("Tour " + Integer.toString(tourInteger));
+
         }
     }
 
@@ -355,13 +419,30 @@ public class GameGraphicalController{
 
          //Distribution des cartes
         DonnerCarteJoueur1(partie.PigerCarteJoueur1());
+        DonnerCarteJoueur2(partie.PigerCarteJoueur2());
+        DonnerCarteJoueur3(partie.PigerCarteJoueur3());
+        DonnerCarteJoueur4(partie.PigerCarteJoueur4());
         DonnerCarteJoueur1(partie.PigerCarteJoueur1());
-        DonnerCarteJoueur2(partie.PigerCarteJoueur2());
-        DonnerCarteJoueur2(partie.PigerCarteJoueur2());
-        DonnerCarteJoueur3(partie.PigerCarteJoueur3());
-        DonnerCarteJoueur3(partie.PigerCarteJoueur3());
-        DonnerCarteJoueur4(partie.PigerCarteJoueur4());
-        DonnerCarteJoueur4(partie.PigerCarteJoueur4());
+        GestionFinPartie();
+
+        if(!partieTerminer){
+
+            DonnerCarteJoueur2(partie.PigerCarteJoueur2());
+        }
+
+        GestionFinPartie();
+
+        if(!partieTerminer){
+
+            DonnerCarteJoueur3(partie.PigerCarteJoueur3());
+        }
+
+        GestionFinPartie();
+
+        if(!partieTerminer){
+
+            DonnerCarteJoueur4(partie.PigerCarteJoueur4());
+        }
 
         GestionFinPartie();
     }
@@ -611,7 +692,6 @@ public class GameGraphicalController{
                 ||
                 partie.getJoueur4().getPoints() == 21
                 ;
-
 
         return joueur1Gagner || joueur2Gagner || joueur3Gagner || joueur4Gagner;
     }
