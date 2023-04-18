@@ -1,3 +1,0 @@
-quand quelqu'un a 21 au depart il ne gagne pas et la partie continue
-quand il reste deux joueurs la partie si une personne conserve l'autre ne peut plus jouer
-si je demande et jobtient 21 avec la carte je ne gagne pas et la partie continue
